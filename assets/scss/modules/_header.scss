@@ -1,0 +1,19 @@
+.header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  padding: 1rem 4rem;
+
+  .menu {
+    display: flex;
+
+    li {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+}

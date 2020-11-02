@@ -1,0 +1,29 @@
+{
+  "name": "hogwarts-university",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Darsh <darsh2987@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "copy-webpack-plugin": "*",
+    "css-loader": "*",
+    "file-loader": "*",
+    "global": "*",
+    "html-loader": "*",
+    "http-server": "*",
+    "mini-css-extract-plugin": "*",
+    "node-sass": "^4.14",
+    "optimize-css-assets-webpack-plugin": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "terser-webpack-plugin": "*",
+    "url-loader": "*",
+    "webpack": "*",
+    "webpack-cli": "*"
+  },
+  "scripts": {
+    "build": "webpack --mode development --watch",
+    "build:prod": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,0 +1,70 @@
+/* 
+Theme Name: Hogwarts University
+Author: Darsh Patel
+Version: 1.0
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #fff;
+  font-weight: 300; }
+  * strong {
+    font-weight: 600; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+.header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  padding: 1rem 4rem; }
+  .header .menu {
+    display: flex; }
+    .header .menu li {
+      margin-left: 1rem;
+      font-size: 1.2rem; }
+
+.page-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #000;
+  padding-bottom: 4rem; }
+  .page-banner--content {
+    position: relative;
+    margin-top: 8rem; }
+  .page-banner--background-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    opacity: 0.5; }
+  .page-banner h1 {
+    font-size: 6rem; }
+  .page-banner h2 {
+    font-size: 3rem; }
+  .page-banner h1,
+  .page-banner h2 {
+    margin-bottom: 1rem; }
+  .page-banner h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem; }
+  .page-banner .btn {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    background-color: darkred;
+    border-radius: 0.5rem; }
+
