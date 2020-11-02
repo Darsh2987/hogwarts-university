@@ -6,14 +6,53 @@
   left: 0;
   width: 100%;
   z-index: 3;
-  padding: 1rem 4rem;
+  padding: 1rem;
 
-  .menu {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    display: none;
+  }
+
+  &--mobile-icons {
     display: flex;
 
-    li {
-      margin-left: 1rem;
-      font-size: 1.2rem;
+    .hamburger-icon {
+      margin-right: 1rem;
+    }
+  }
+
+  .hamburger-icon .fa-bars {
+    font-size: 1.5rem;
+  }
+
+  .search-icon .fa-search {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .header {
+    padding-right: 2rem;
+    padding-left: 2rem;
+
+    nav {
+      display: unset;
+
+      .menu {
+        display: flex;
+
+        li {
+          margin-left: 1rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    &--mobile-icons {
+      display: none;
     }
   }
 }

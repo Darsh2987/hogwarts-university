@@ -27,12 +27,33 @@ li {
   left: 0;
   width: 100%;
   z-index: 3;
-  padding: 1rem 4rem; }
-  .header .menu {
+  padding: 1rem; }
+  .header h1 {
+    font-size: 1.5rem; }
+  .header nav {
+    display: none; }
+  .header--mobile-icons {
     display: flex; }
-    .header .menu li {
-      margin-left: 1rem;
-      font-size: 1.2rem; }
+    .header--mobile-icons .hamburger-icon {
+      margin-right: 1rem; }
+  .header .hamburger-icon .fa-bars {
+    font-size: 1.5rem; }
+  .header .search-icon .fa-search {
+    font-size: 1.5rem; }
+
+@media screen and (min-width: 650px) {
+  .header {
+    padding-right: 2rem;
+    padding-left: 2rem; }
+    .header nav {
+      display: unset; }
+      .header nav .menu {
+        display: flex; }
+        .header nav .menu li {
+          margin-left: 1rem;
+          font-size: 1.2rem; }
+    .header--mobile-icons {
+      display: none; } }
 
 .page-banner {
   position: relative;
@@ -41,9 +62,6 @@ li {
   text-align: center;
   background-color: #000;
   padding-bottom: 4rem; }
-  .page-banner--content {
-    position: relative;
-    margin-top: 8rem; }
   .page-banner--background-image {
     position: absolute;
     top: 0;
@@ -52,19 +70,34 @@ li {
     right: 0;
     background-size: cover;
     opacity: 0.5; }
-  .page-banner h1 {
-    font-size: 6rem; }
-  .page-banner h2 {
-    font-size: 3rem; }
-  .page-banner h1,
-  .page-banner h2 {
-    margin-bottom: 1rem; }
-  .page-banner h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem; }
-  .page-banner .btn {
-    font-size: 2rem;
-    padding: 1rem 2rem;
-    background-color: darkred;
-    border-radius: 0.5rem; }
+  .page-banner--content {
+    position: relative;
+    margin-top: 8rem;
+    padding: 0 1rem; }
+    .page-banner--content h1 {
+      font-size: 4rem; }
+    .page-banner--content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem; }
+    .page-banner--content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem; }
+    .page-banner--content .btn {
+      font-size: 1.2rem;
+      padding: 0.8rem 1rem;
+      background-color: darkred;
+      border-radius: 0.5rem; }
+
+@media screen and (min-width: 700px) {
+  .page-banner--content {
+    padding: 0; }
+    .page-banner--content h1 {
+      font-size: 6rem; }
+    .page-banner--content h2 {
+      font-size: 3rem; }
+    .page-banner--content h3 {
+      font-size: 2rem; }
+    .page-banner--content .btn {
+      font-size: 1.6rem;
+      padding: 1rem 2rem; } }
 

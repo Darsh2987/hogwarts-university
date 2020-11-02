@@ -15,4 +15,9 @@
         "theme_location" => "headerMenuLocation"
       )); ?>
     </nav>
+    <div class="header--mobile-icons">
+      <div class="hamburger-icon"><i class="fas fa-bars"></i></div>
+      <div class="search-icon"><i class="fas fa-search"></i></div>
+    </div>
+    
   </header>
