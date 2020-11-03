@@ -13,9 +13,7 @@ add_action("wp_enqueue_scripts", "hogwarts_files");
 // Theme features/support functions ie: title tag, feature image, nav menus
 function hogwarts_features() {
   add_theme_support("title-tag");
-  add_theme_support("post-thumbnails", array(
-    "post", "page"
-  ));
+  add_theme_support("post-thumbnails");
   register_nav_menu("headerMenuLocation", "Header Menu Location");
 }
 
