@@ -43,19 +43,33 @@
       border-radius: 0.5rem;
     }
   }
+
+  &--content-template h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .page-banner--content-template {
+    width: 500px;
+    margin: 8rem auto 0 auto;
+    text-align: left;
+
+    h2 {
+      font-size: 2.1rem;
+    }
+  }
 }
 
 @media screen and (min-width: 700px) {
   .page-banner {
     &--content {
-      padding: 0;
-
       h1 {
         font-size: 6rem;
       }
 
       h2 {
-        font-size: 3rem;
+        font-size: 2.7rem;
       }
 
       h3 {
@@ -67,5 +81,15 @@
         padding: 1rem 2rem;
       }
     }
+
+    &--content-template {
+      width: 700px;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .page-banner--content-template {
+    width: 900px;
   }
 }

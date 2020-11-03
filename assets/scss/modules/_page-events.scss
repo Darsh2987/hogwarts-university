@@ -1,0 +1,40 @@
+.all-events-summary {
+  padding: 1rem;
+
+  .post-summary--date {
+    font-size: 1.4rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  p {
+    color: #000;
+
+    a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .all-events-summary {
+    width: 500px;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .all-events-summary {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .all-events-summary {
+    width: 900px;
+  }
+}
