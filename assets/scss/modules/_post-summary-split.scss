@@ -1,0 +1,153 @@
+.post-summary-container {
+  .post-summary-split {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 1rem 0;
+      color: #000;
+    }
+
+    button {
+      background-color: $red-main;
+      border: none;
+      width: 200px;
+      padding: 1rem 0;
+      margin: 2rem auto 0 auto;
+      border-radius: 0.3rem;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: linear-gradient($red-main, $red-hover);
+    }
+  }
+
+  .post-summary-split--one {
+    background-color: $yellow-light;
+
+    button {
+      background-color: $yellow-main;
+    }
+
+    button:hover {
+      background: linear-gradient($yellow-main, $yellow-hover);
+    }
+  }
+
+  .post-summary-split--two {
+    background-color: #fffcf5;
+
+    .post-summary .post-summary--date {
+      padding: 0.5rem 1.2rem;
+      background-color: $red-main;
+    }
+  }
+}
+
+.post-summary {
+  display: flex;
+  align-items: flex-start;
+  margin: 1rem 0;
+
+  &--date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    background-color: $yellow-main;
+    padding: 0.5rem 1rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &--date:hover {
+    opacity: 0.75;
+  }
+
+  &--day {
+    font-weight: 600;
+  }
+
+  &--content {
+    margin-left: 1rem;
+  }
+
+  &--title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+    display: inline-block;
+  }
+
+  &--title:hover {
+    text-decoration: none;
+  }
+
+  &--excerpt {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+
+  p,
+  a {
+    color: #000;
+  }
+
+  h5 a {
+    color: $red-darkest;
+  }
+
+  .read-learn-more {
+    color: $grey-main;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .post-summary {
+    &--title {
+      font-size: 1.4rem;
+    }
+
+    &--excerpt {
+      font-size: 1.1rem;
+      line-height: 1.4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .post-summary-container {
+    display: flex;
+
+    .post-summary-split--one {
+      padding-left: 5rem;
+    }
+
+    .post-summary-split--two {
+      padding-right: 5rem;
+    }
+  }
+
+  .post-summary-split {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .post-summary-container {
+    .post-summary-split--one {
+      padding-left: 15rem;
+    }
+
+    .post-summary-split--two {
+      padding-right: 15rem;
+    }
+  }
+}
