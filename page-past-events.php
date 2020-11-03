@@ -1,4 +1,4 @@
-<?php /* Template Name: Events */?>
+<?php /* Template Name: Past Events */?>
 
 <?php get_header(); ?>
 
@@ -14,7 +14,7 @@
 <section class="all-events-summary">
   <?php
     $today = date("Ymd");
-    $homepageEvents = new WP_Query(array(
+    $pastEvents = new WP_Query(array(
       "post_type" => "event",
       "meta_key" => "event_date",
       "orderby" => "meta_value_num",
@@ -22,15 +22,15 @@
       "meta_query" => array(
         array(
           "key" => "event_date",
-          "compare" => ">=",
+          "compare" => "<",
           "value" => $today,
           "type" => "numeric"
         )
       )
     ));
 
-    while($homepageEvents->have_posts()) {
-      $homepageEvents->the_post(); ?>
+    while($pastEvents->have_posts()) {
+      $pastEvents->the_post(); ?>
         <div class="post-summary">
           <a class="post-summary--date" href="<?php the_permalink(); ?>">
             <span class="post-summary--month">
@@ -69,9 +69,4 @@
 
 <hr class="section-break">
 
-<p>Looking for a recap of past events? <a href="<?php echo site_url("/past-events")?>">Check out our past events archive</a></p>
-
 </section>
-
-  
-<?php get_footer(); ?>
