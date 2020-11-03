@@ -7,7 +7,7 @@ Version: 1.0
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #fff;
   font-weight: 300; }
   * strong {
@@ -85,7 +85,7 @@ li {
     .page-banner--content .btn {
       font-size: 1.2rem;
       padding: 0.8rem 1rem;
-      background-color: darkred;
+      background-color: #b6191a;
       border-radius: 0.5rem; }
 
 @media screen and (min-width: 700px) {
@@ -100,4 +100,100 @@ li {
     .page-banner--content .btn {
       font-size: 1.6rem;
       padding: 1rem 2rem; } }
+
+.post-summary-container .post-summary-split {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem; }
+  .post-summary-container .post-summary-split h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 1rem 0;
+    color: #000; }
+  .post-summary-container .post-summary-split button {
+    background-color: #b6191a;
+    border: none;
+    width: 200px;
+    padding: 1rem 0;
+    margin: 2rem auto 0 auto;
+    border-radius: 0.3rem;
+    font-size: 1.3rem;
+    cursor: pointer; }
+  .post-summary-container .post-summary-split button:hover {
+    background: linear-gradient(#b6191a, #8b0000); }
+
+.post-summary-container .post-summary-split--one {
+  background-color: #fbf1d5; }
+  .post-summary-container .post-summary-split--one button {
+    background-color: #f1c759; }
+  .post-summary-container .post-summary-split--one button:hover {
+    background: linear-gradient(#f1c759, #d9b75e); }
+
+.post-summary-container .post-summary-split--two {
+  background-color: #fffcf5; }
+  .post-summary-container .post-summary-split--two .post-summary .post-summary--date {
+    padding: 0.5rem 1.2rem;
+    background-color: #b6191a; }
+
+.post-summary {
+  display: flex;
+  align-items: flex-start;
+  margin: 1rem 0; }
+  .post-summary--date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    background-color: #f1c759;
+    padding: 0.5rem 1rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.2s ease-in-out; }
+  .post-summary--date:hover {
+    opacity: 0.75; }
+  .post-summary--day {
+    font-weight: 600; }
+  .post-summary--content {
+    margin-left: 1rem; }
+  .post-summary--title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+    display: inline-block; }
+  .post-summary--title:hover {
+    text-decoration: none; }
+  .post-summary--excerpt {
+    font-size: 0.8rem;
+    line-height: 1.2rem; }
+  .post-summary p,
+  .post-summary a {
+    color: #000; }
+  .post-summary h5 a {
+    color: #450000; }
+  .post-summary .read-learn-more {
+    color: #999999; }
+
+@media screen and (min-width: 600px) {
+  .post-summary--title {
+    font-size: 1.4rem; }
+  .post-summary--excerpt {
+    font-size: 1.1rem;
+    line-height: 1.4rem; } }
+
+@media screen and (min-width: 1000px) {
+  .post-summary-container {
+    display: flex; }
+    .post-summary-container .post-summary-split--one {
+      padding-left: 5rem; }
+    .post-summary-container .post-summary-split--two {
+      padding-right: 5rem; }
+  .post-summary-split {
+    width: 50%; } }
+
+@media screen and (min-width: 1400px) {
+  .post-summary-container .post-summary-split--one {
+    padding-left: 15rem; }
+  .post-summary-container .post-summary-split--two {
+    padding-right: 15rem; } }
 
