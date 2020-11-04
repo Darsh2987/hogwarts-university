@@ -20,7 +20,7 @@
 
   $all = new WP_Query(array(
     "post_type" => "post",
-    "posts_per_page" => "-1"
+    "posts_per_page" => -1
   ));
     while($all->have_posts()) {
       $all->the_post(); ?>

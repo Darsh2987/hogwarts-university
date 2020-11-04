@@ -301,6 +301,22 @@ button {
   .all-events-summary {
     margin: 2rem auto; } }
 
+.subjects--year {
+  margin-bottom: 4rem; }
+  .subjects--year h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #000; }
+
+.post-item--subjects h2 {
+  font-size: 1.8rem;
+  color: #000; }
+  .post-item--subjects h2 a {
+    color: #b6191a;
+    text-decoration: underline; }
+  .post-item--subjects h2 a:hover {
+    text-decoration: none; }
+
 .single-post-content-container {
   display: flex;
   flex-direction: column; }
