@@ -13,14 +13,21 @@
       </div>
     </section>
 
-    <div class="metabox-links section-width">
+    <div class="metabox section-width">
       <?php $eventsPage = get_page_by_title("Events");?>
-      <button><a class="metabox-links--home" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a></button>
+      <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a>
+      <div class="metabox-item metabox-item--date">
+        <p>
+          <?php 
+            $eventDate = new DateTime(get_field("event_date")); 
+            echo $eventDate->format("d M Y")
+          ?>
+        </p>
+      </div>
     </div>  
 
     <section class="single-post-content-container section-width">
-      <?php $eventImage = get_field("event_image"); ?>
-      <img src="<?php echo $eventImage["url"] ?>" alt="">
+
       <?php the_content(); ?>
     </section>
   <?php }

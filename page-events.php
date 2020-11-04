@@ -11,10 +11,12 @@
   </div>
 </section>
 
-<div class="metabox-links section-width">
+<div class="metabox section-width">
+  <?php $homePage = get_page_by_title("Home Page");?>
+  <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
   <?php $pastEventsPage = get_page_by_title("Past Events");?>
-  <button><a class="metabox-links--home" href="<?php echo get_permalink($pastEventsPage->ID); ?>"><i class="fa fa-history" aria-hidden="true"></i> Past Events</a></button>
-</div>
+  <a class="metabox-item metabox-link--events" href="<?php echo get_permalink($pastEventsPage->ID); ?>"><i class="fa fa-history" aria-hidden="true"></i> Past Events</a>
+</div>  
 
 <section class="all-events-summary section-width">
   <?php

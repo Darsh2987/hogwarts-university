@@ -11,10 +11,12 @@
   </div>
 </section>
 
-<div class="metabox-links section-width">
+<div class="metabox section-width">
+<?php $homePage = get_page_by_title("Home Page");?>
+  <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
   <?php $eventsPage = get_page_by_title("Events");?>
-  <button><a class="metabox-links--home" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a></button>
-</div>
+  <a class="metabox-item metabox-link--events" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a>
+</div>  
 
 <section class="all-events-summary section-width">
   <?php
@@ -76,19 +78,6 @@
 
 <?php $eventsPage = get_page_by_title("Events");?>
 <p><a href="<?php echo get_permalink($eventsPage->ID); ?>">Back to all Upcoming Events</a></p>
-
-<?php 
-
-$all = new WP_Query(array(
-  "post_type" => "post",
-  "posts_per_page" => "-1"
-));
-  while($all->have_posts()) {
-    $all->the_post(); ?>
-    <h1><?php the_title(); ?></h1>
-    <p><?php the_content(); ?></p>
-<?php }
-?>
 
 
 </section>
