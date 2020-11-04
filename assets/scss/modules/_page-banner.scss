@@ -51,7 +51,6 @@
 
 @media screen and (min-width: 500px) {
   .page-banner--content-template {
-    width: 500px;
     margin: 8rem auto 0 auto;
     text-align: left;
 
@@ -81,15 +80,5 @@
         padding: 1rem 2rem;
       }
     }
-
-    &--content-template {
-      width: 700px;
-    }
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .page-banner--content-template {
-    width: 900px;
   }
 }

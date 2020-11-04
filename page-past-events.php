@@ -5,13 +5,18 @@
 <?php $backgroundBanner = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full"); ?>
 <section class="page-banner">
   <div class="page-banner--background-image" style="background-image: url(<?php echo $backgroundBanner["0"]; ?>)"></div>
-  <div class="page-banner--content page-banner--content-template">
+  <div class="page-banner--content page-banner--content-template section-width">
     <h1 class="title">All <?php the_title(); ?></h1>
-    <h2 class="headline"><?php the_content(); ?></h2>
+    <h2 class="headline"><?php the_field("sub_title"); ?></h2>
   </div>
 </section>
 
-<section class="all-events-summary">
+<div class="metabox-links section-width">
+  <?php $eventsPage = get_page_by_title("Events");?>
+  <button><a class="metabox-links--home" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a></button>
+</div>
+
+<section class="all-events-summary section-width">
   <?php
     $today = date("Ymd");
     $pastEvents = new WP_Query(array(
@@ -68,5 +73,22 @@
   ?>
 
 <hr class="section-break">
+
+<?php $eventsPage = get_page_by_title("Events");?>
+<p><a href="<?php echo get_permalink($eventsPage->ID); ?>">Back to all Upcoming Events</a></p>
+
+<?php 
+
+$all = new WP_Query(array(
+  "post_type" => "post",
+  "posts_per_page" => "-1"
+));
+  while($all->have_posts()) {
+    $all->the_post(); ?>
+    <h1><?php the_title(); ?></h1>
+    <p><?php the_content(); ?></p>
+<?php }
+?>
+
 
 </section>

@@ -5,13 +5,18 @@
 <?php $backgroundBanner = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full"); ?>
 <section class="page-banner">
   <div class="page-banner--background-image" style="background-image: url(<?php echo $backgroundBanner["0"]; ?>)"></div>
-  <div class="page-banner--content page-banner--content-template">
+  <div class="page-banner--content page-banner--content-template section-width">
     <h1 class="title">All <?php the_title(); ?></h1>
-    <h2 class="headline"><?php the_content(); ?></h2>
+    <h2 class="headline"><?php the_field("sub_title"); ?></h2>
   </div>
 </section>
 
-<section class="all-events-summary">
+<div class="metabox-links section-width">
+  <?php $pastEventsPage = get_page_by_title("Past Events");?>
+  <button><a class="metabox-links--home" href="<?php echo get_permalink($pastEventsPage->ID); ?>"><i class="fa fa-history" aria-hidden="true"></i> Past Events</a></button>
+</div>
+
+<section class="all-events-summary section-width">
   <?php
     $today = date("Ymd");
     $homepageEvents = new WP_Query(array(
@@ -69,7 +74,9 @@
 
 <hr class="section-break">
 
-<p>Looking for a recap of past events? <a href="<?php echo site_url("/past-events")?>">Check out our past events archive</a></p>
+<?php $pastEventsPage = get_page_by_title("Past Events");?>
+<p>Looking for a recap of past events? <a href="<?php echo get_permalink($pastEventsPage->ID); ?>">Check out our past events archive</a></p>
+
 
 </section>
 
