@@ -12,6 +12,11 @@
 .related-subjects .post-item h3 a {
   font-size: 1.3rem;
   color: $red-main;
+  text-decoration: underline;
+}
+
+.related-subjects .post-item h3 a:hover {
+  text-decoration: none;
 }
 
 .related-professors .professors .professor-post-item {

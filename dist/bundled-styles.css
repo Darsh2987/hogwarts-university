@@ -245,7 +245,11 @@ button {
 
 .related-subjects .post-item h3 a {
   font-size: 1.3rem;
-  color: #b6191a; }
+  color: #b6191a;
+  text-decoration: underline; }
+
+.related-subjects .post-item h3 a:hover {
+  text-decoration: none; }
 
 .related-professors .professors .professor-post-item {
   margin-bottom: 0; }
