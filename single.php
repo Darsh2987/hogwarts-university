@@ -5,8 +5,7 @@
     the_post(); ?>
 
     <section class="page-banner">
-      <?php $backgroundBanner = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full"); ?>
-      <div class="page-banner--background-image" style="background-image: url(<?php echo $backgroundBanner["0"]; ?>)"></div>
+    <div class="page-banner--background-image" style="background-image: url(<?php $backgroundBanner = get_field("background_banner"); echo  $backgroundBanner["url"] ?>)"></div>
       <div class="page-banner--content page-banner--content-template section-width">
         <h1 class="title"><?php the_title(); ?></h1>
         <h2 class="headline">Posted By <?php the_author_posts_link(); ?></h2>
@@ -23,6 +22,7 @@
 
     <section class="single-post-content-container section-width">
       <article class="single-post-content">
+        <img class="single-post-content--image" src="<?php the_post_thumbnail_url("professorLandscape"); ?>" alt="<?php the_title(); ?>">
         <?php the_content(); ?>
       </article>
 

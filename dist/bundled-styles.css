@@ -35,16 +35,16 @@ button {
 
 @media screen and (min-width: 500px) {
   .section-width {
-    width: 500px;
+    width: 480px;
     margin: 2rem auto; } }
 
 @media screen and (min-width: 700px) {
   .section-width {
-    width: 700px; } }
+    width: 680px; } }
 
 @media screen and (min-width: 1000px) {
   .section-width {
-    width: 1000px; } }
+    width: 980px; } }
 
 .header {
   position: absolute;
@@ -317,40 +317,77 @@ button {
   .post-item--subjects h2 a:hover {
     text-decoration: none; }
 
-.single-post-content-container {
+.professors {
   display: flex;
   flex-direction: column; }
-  .single-post-content-container img {
-    width: 180px;
-    text-align: center;
-    margin-bottom: 2rem; }
-  .single-post-content-container p {
-    color: #000; }
+  .professors .professor-post-item {
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: #b6191a;
+    overflow: hidden; }
+    .professors .professor-post-item .professor-card {
+      position: relative;
+      overflow: hidden; }
+      .professors .professor-post-item .professor-card--image {
+        width: 100%;
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
+      .professors .professor-post-item .professor-card--image:hover {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(4deg); }
+      .professors .professor-post-item .professor-card--name {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(182, 25, 26, 0.8);
+        color: #fff;
+        padding: 0.5rem;
+        font-size: 1.2rem; }
+
+@media screen and (min-width: 500px) {
+  .professors {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .professors .professor-post-item {
+      width: 220px;
+      height: 145px; } }
+
+.single-post-content-container p {
+  color: #000; }
 
 @media screen and (min-width: 500px) {
   .single-post-content-container {
-    flex-direction: row;
-    align-items: flex-start;
     margin: 2rem auto; }
-    .single-post-content-container img {
-      width: 150px;
-      margin-right: 2rem; } }
+  .single-post-content--image {
+    margin-bottom: 1.5rem; } }
 
 @media screen and (min-width: 700px) {
-  .single-post-content-container img {
-    width: 170px;
-    margin-right: 2rem; }
   .single-post-content-container p {
     font-size: 1.2rem;
-    line-height: 1.6rem; } }
+    line-height: 1.6rem; }
+  .single-post-content-container .single-post-content {
+    display: flex; }
+    .single-post-content-container .single-post-content--image {
+      margin-right: 1.5rem; } }
 
 @media screen and (min-width: 1000px) {
-  .single-post-content-container img {
-    width: 300px;
-    margin-right: 2rem; }
   .single-post-content-container p {
     font-size: 1.3rem;
     line-height: 1.8rem; } }
+
+.professor-post-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem; }
+
+@media screen and (min-width: 700px) {
+  .professor-post-content {
+    display: flex; }
+    .professor-post-content img {
+      width: 300px;
+      height: auto;
+      margin-right: 1.5rem; } }
 
 .metabox {
   display: flex;

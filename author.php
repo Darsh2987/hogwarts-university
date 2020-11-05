@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
 <section class="page-banner">
-  <?php $backgroundBanner = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full"); ?>
-  <div class="page-banner--background-image" style="background-image: url(<?php echo $backgroundBanner["0"]; ?>)"></div>
+<div class="page-banner--background-image" style="background-image: url(<?php $backgroundBanner = get_field("background_banner"); echo  $backgroundBanner["url"] ?>)"></div>
   <div class="page-banner--content page-banner--content-template section-width">
     <h1 class="title">All Posts by <?php the_author(); ?></h1>
     <h2 class="headline"><?php the_field("event_sub_title"); ?></h2>
