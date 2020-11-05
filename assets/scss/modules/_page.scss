@@ -7,6 +7,11 @@
   h1 {
     font-size: 2rem;
     font-family: "Roboto Condensed", sans-serif;
+    text-decoration: underline;
+  }
+
+  h1:hover {
+    text-decoration: none;
   }
 
   &--metabox {
@@ -17,6 +22,7 @@
 
     p {
       margin-bottom: 0;
+      font-size: 0.8rem;
 
       a {
         text-decoration: underline;
@@ -54,6 +60,10 @@
 
     &--metabox {
       font-size: 1.2rem;
+
+      p {
+        font-size: 1rem;
+      }
     }
 
     &--excerpt {

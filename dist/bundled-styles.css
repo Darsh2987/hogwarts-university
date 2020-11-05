@@ -243,7 +243,11 @@ button {
 
 .post-item h1 {
   font-size: 2rem;
-  font-family: "Roboto Condensed", sans-serif; }
+  font-family: "Roboto Condensed", sans-serif;
+  text-decoration: underline; }
+
+.post-item h1:hover {
+  text-decoration: none; }
 
 .post-item--metabox {
   display: inline-block;
@@ -251,7 +255,8 @@ button {
   padding: 0.5rem;
   border-radius: 0.2rem; }
   .post-item--metabox p {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-size: 0.8rem; }
     .post-item--metabox p a {
       text-decoration: underline; }
     .post-item--metabox p a:hover {
@@ -276,6 +281,8 @@ button {
     font-size: 3rem; }
   .post-item--metabox {
     font-size: 1.2rem; }
+    .post-item--metabox p {
+      font-size: 1rem; }
   .post-item--excerpt {
     font-size: 1.4rem;
     margin-bottom: 3rem;
@@ -351,16 +358,23 @@ button {
     justify-content: space-between; }
     .professors .professor-post-item {
       width: 220px;
-      height: 145px; } }
+      height: 145px; }
+      .professors .professor-post-item .professor-card--name {
+        font-size: 1rem; } }
 
 .single-post-content-container p {
   color: #000; }
 
+.single-post-content--image {
+  margin-bottom: 1.5rem; }
+
+.single-post-content img {
+  width: 100%;
+  height: auto; }
+
 @media screen and (min-width: 500px) {
   .single-post-content-container {
-    margin: 2rem auto; }
-  .single-post-content--image {
-    margin-bottom: 1.5rem; } }
+    margin: 2rem auto; } }
 
 @media screen and (min-width: 700px) {
   .single-post-content-container p {
@@ -368,26 +382,14 @@ button {
     line-height: 1.6rem; }
   .single-post-content-container .single-post-content {
     display: flex; }
-    .single-post-content-container .single-post-content--image {
-      margin-right: 1.5rem; } }
+    .single-post-content-container .single-post-content img {
+      margin-right: 1.5rem;
+      width: 300px; } }
 
 @media screen and (min-width: 1000px) {
   .single-post-content-container p {
     font-size: 1.3rem;
     line-height: 1.8rem; } }
-
-.professor-post-content img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1.5rem; }
-
-@media screen and (min-width: 700px) {
-  .professor-post-content {
-    display: flex; }
-    .professor-post-content img {
-      width: 300px;
-      height: auto;
-      margin-right: 1.5rem; } }
 
 .metabox {
   display: flex;

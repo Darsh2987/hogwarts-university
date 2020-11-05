@@ -45,6 +45,10 @@
     .professor-post-item {
       width: 220px;
       height: 145px;
+
+      .professor-card--name {
+        font-size: 1rem;
+      }
     }
   }
 }

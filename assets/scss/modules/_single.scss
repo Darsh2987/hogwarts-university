@@ -4,13 +4,20 @@
   }
 }
 
+.single-post-content {
+  &--image {
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .single-post-content-container {
     margin: 2rem auto;
-  }
-
-  .single-post-content--image {
-    margin-bottom: 1.5rem;
   }
 }
 
@@ -24,8 +31,9 @@
     .single-post-content {
       display: flex;
 
-      &--image {
+      img {
         margin-right: 1.5rem;
+        width: 300px;
       }
     }
   }
