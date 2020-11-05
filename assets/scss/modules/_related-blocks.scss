@@ -1,0 +1,37 @@
+.related-professors,
+.related-events,
+.related-subjects {
+  h2 {
+    font-size: 2rem;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+}
+
+.related-subjects .post-item h3 a {
+  font-size: 1.3rem;
+  color: $red-main;
+}
+
+.related-professors .professors .professor-post-item {
+  margin-bottom: 0;
+}
+
+.related-events {
+  .post-summary--date {
+    font-size: 1.4rem;
+  }
+}
+
+.related-professors {
+  .professors {
+    display: block;
+  }
+
+  &--item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

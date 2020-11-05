@@ -26,12 +26,12 @@ button {
   outline: none; }
 
 .section-width {
-  padding: 1rem; }
+  padding: 0 1rem; }
 
 .section-break {
   border: none;
   border-top: 1px solid #ddd;
-  margin: 3rem 0; }
+  margin: 1rem 0; }
 
 @media screen and (min-width: 500px) {
   .section-width {
@@ -236,6 +236,32 @@ button {
     padding-left: 15rem; }
   .post-summary-container .post-summary-split--two {
     padding-right: 15rem; } }
+
+.related-professors h2,
+.related-events h2,
+.related-subjects h2 {
+  font-size: 2rem;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-bottom: 1.5rem;
+  color: #000; }
+
+.related-subjects .post-item h3 a {
+  font-size: 1.3rem;
+  color: #b6191a; }
+
+.related-professors .professors .professor-post-item {
+  margin-bottom: 0; }
+
+.related-events .post-summary--date {
+  font-size: 1.4rem; }
+
+.related-professors .professors {
+  display: block; }
+
+.related-professors--item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 .post-item * {
   color: #000;
