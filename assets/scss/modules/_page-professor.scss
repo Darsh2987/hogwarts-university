@@ -1,0 +1,50 @@
+.professors {
+  display: flex;
+  flex-direction: column;
+
+  .professor-post-item {
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: $red-main;
+    overflow: hidden;
+
+    .professor-card {
+      position: relative;
+      overflow: hidden;
+
+      &--image {
+        width: 100%;
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+      }
+
+      &--image:hover {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(4deg);
+      }
+
+      &--name {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($red-main, 0.8);
+        color: #fff;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .professors {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .professor-post-item {
+      width: 220px;
+      height: 145px;
+    }
+  }
+}

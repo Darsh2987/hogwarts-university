@@ -1,0 +1,19 @@
+.professor-post-content {
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .professor-post-content {
+    display: flex;
+
+    img {
+      width: 300px;
+      height: auto;
+      margin-right: 1.5rem;
+    }
+  }
+}
