@@ -38,17 +38,18 @@
           ));
           if ($relatedProfessors->have_posts()) { ?>
             <h2>Related Professors</h2>
-            <?php while($relatedProfessors->have_posts()) {
-              $relatedProfessors->the_post(); ?>
-              <div class="professor-post-item">
-                <a class="professor-card" href="<?php the_permalink(); ?>">
-                  <img class="professor-card--image" src="<?php the_post_thumbnail_url("professorLandscape"); ?>" alt="<?php the_title(); ?>">
-                  <span class="professor-card--name"><?php the_title(); ?></span>
-                </a>
-              </div>
-            <?php }
-            echo "</ul>";
-          }
+            <div class="related-professors--item-wrapper">
+              <?php while($relatedProfessors->have_posts()) {
+                $relatedProfessors->the_post(); ?>
+                <div class="professor-post-item">
+                  <a class="professor-card" href="<?php the_permalink(); ?>">
+                    <img class="professor-card--image" src="<?php the_post_thumbnail_url("professorLandscape"); ?>" alt="<?php the_title(); ?>">
+                    <span class="professor-card--name"><?php the_title(); ?></span>
+                  </a>
+                </div>
+              <?php } ?>
+            </div>
+          <?php }
         ?>
       </div>
     </section>
