@@ -103,9 +103,9 @@ button {
     padding: 0 1rem;
     font-family: "Roboto Condensed", sans-serif; }
     .page-banner--content h1 {
-      font-size: 4rem; }
+      font-size: 3rem; }
     .page-banner--content h2 {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem; }
       .page-banner--content h2 a {
         text-decoration: underline; }
@@ -119,8 +119,6 @@ button {
       padding: 0.8rem 1rem;
       background-color: #b6191a;
       border-radius: 0.5rem; }
-  .page-banner--content-template h2 {
-    font-size: 2rem; }
 
 @media screen and (min-width: 500px) {
   .page-banner--content-template {
@@ -420,8 +418,7 @@ button {
 .metabox {
   display: flex;
   position: relative;
-  bottom: 41px;
-  margin-bottom: -2rem;
+  bottom: 26px;
   font-size: 0.85rem; }
   .metabox-item {
     background-color: #b6191a;
@@ -445,7 +442,7 @@ button {
 
 @media screen and (min-width: 500px) {
   .metabox {
-    bottom: 74px;
-    margin-bottom: -5rem;
+    bottom: 60px;
+    margin-bottom: -2rem;
     font-size: 1rem; } }
 

@@ -1,8 +1,7 @@
 .metabox {
   display: flex;
   position: relative;
-  bottom: 41px;
-  margin-bottom: -2rem;
+  bottom: 26px;
   font-size: 0.85rem;
 
   &-item {
@@ -41,8 +40,8 @@
 
 @media screen and (min-width: 500px) {
   .metabox {
-    bottom: 74px;
-    margin-bottom: -5rem;
+    bottom: 60px;
+    margin-bottom: -2rem;
     font-size: 1rem;
   }
 }
