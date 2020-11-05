@@ -18,6 +18,8 @@ function hogwarts_features() {
   add_image_size("professorPortrait", 480, 450, true);
   add_image_size("pageBanner", 1500, 350, true);
   register_nav_menu("headerMenuLocation", "Header Menu Location");
+  register_nav_menu("footerMenuLocationOne", "Footer Menu Location One");
+  register_nav_menu("footerMenuLocationTwo", "Footer Menu Location Two");
 }
 
 add_action("after_setup_theme", "hogwarts_features");
