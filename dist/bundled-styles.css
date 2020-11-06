@@ -220,7 +220,6 @@ footer * {
 .post-summary-container .post-summary-split {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   padding: 1rem; }
   .post-summary-container .post-summary-split h2 {
     font-size: 1.8rem;
