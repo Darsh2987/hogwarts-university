@@ -2,6 +2,7 @@
   .post-summary-split {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     padding: 1rem;
 
     h2 {
@@ -106,6 +107,11 @@
 
   .read-learn-more {
     color: $grey-main;
+    text-decoration: underline;
+  }
+
+  .read-learn-more:hover {
+    text-decoration: none;
   }
 }
 

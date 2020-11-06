@@ -112,10 +112,8 @@ footer * {
       margin-bottom: 0.5rem;
       font-family: "Roboto Condensed", sans-serif; }
     .footer--menus nav .menu-item a {
-      text-decoration: underline;
       line-height: 1.5rem; }
     .footer--menus nav .menu-item a:hover {
-      text-decoration: none;
       color: #b6191a; }
   .footer--main-menu {
     margin: 0 2.5rem 2rem 0; }
@@ -155,8 +153,7 @@ footer * {
     .footer--menus h3 {
       font-size: 2rem; }
     .footer--menus nav .menu-item a {
-      font-size: 1rem;
-      line-height: 2rem; }
+      font-size: 1rem; }
     .footer--social-icons h3 {
       font-size: 2rem;
       text-align: left; } }
@@ -223,6 +220,7 @@ footer * {
 .post-summary-container .post-summary-split {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   padding: 1rem; }
   .post-summary-container .post-summary-split h2 {
     font-size: 1.8rem;
@@ -291,7 +289,10 @@ footer * {
   .post-summary h5 a {
     color: #450000; }
   .post-summary .read-learn-more {
-    color: #999999; }
+    color: #999999;
+    text-decoration: underline; }
+  .post-summary .read-learn-more:hover {
+    text-decoration: none; }
 
 @media screen and (min-width: 600px) {
   .post-summary--title {
@@ -387,6 +388,9 @@ footer * {
   padding: 0.5rem;
   border-radius: 0.2rem;
   cursor: pointer; }
+
+.post-item--button:hover {
+  background-color: #8b0000; }
 
 .post-item .section-break {
   margin: 2rem 0; }

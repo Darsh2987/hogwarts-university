@@ -47,6 +47,10 @@
     cursor: pointer;
   }
 
+  &--button:hover {
+    background-color: $red-hover;
+  }
+
   .section-break {
     margin: 2rem 0;
   }
