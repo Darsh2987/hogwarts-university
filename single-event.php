@@ -6,8 +6,10 @@
     get_template_part("template-parts/single-banner")?>
 
     <div class="metabox section-width">
+    <?php $homePage = get_page_by_title("Home Page");?>
+      <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
       <?php $eventsPage = get_page_by_title("Events");?>
-      <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a>
+      <a class="metabox-item metabox-link--parent remove-border-radius" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> All Events</a>
       <div class="metabox-item metabox-item--date">
         <p>
           <?php 
@@ -16,7 +18,7 @@
           ?>
         </p>
       </div>
-    </div>  
+    </div> 
 
     <?php get_template_part("template-parts/single-post-content"); ?>
 

@@ -36,7 +36,15 @@
 
   &--item-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .related-professors .professors .professor-post-item {
+    width: 205px;
+    height: 136px;
+    margin-right: 0.5rem;
   }
 }

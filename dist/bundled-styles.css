@@ -33,6 +33,9 @@ button {
   border-top: 1px solid #ddd;
   margin: 1rem 0; }
 
+.page-numbers {
+  color: #000; }
+
 @media screen and (min-width: 500px) {
   .section-width {
     width: 480px;
@@ -106,7 +109,8 @@ footer * {
       text-decoration: underline;
       line-height: 1.5rem; }
     .footer--menus nav .menu-item a:hover {
-      text-decoration: none; }
+      text-decoration: none;
+      color: #b6191a; }
   .footer--main-menu {
     margin: 0 2.5rem 2rem 0; }
   .footer--social-icons {
@@ -141,11 +145,11 @@ footer * {
     justify-content: space-evenly;
     align-items: normal; }
     .footer h1 {
-      font-size: 2rem; }
+      font-size: 1.5rem; }
     .footer--menus h3 {
       font-size: 2rem; }
     .footer--menus nav .menu-item a {
-      font-size: 1.4rem;
+      font-size: 1rem;
       line-height: 2rem; }
     .footer--social-icons h3 {
       font-size: 2rem;
@@ -330,8 +334,14 @@ footer * {
 
 .related-professors--item-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   flex-wrap: wrap; }
+
+@media screen and (min-width: 500px) {
+  .related-professors .professors .professor-post-item {
+    width: 205px;
+    height: 136px;
+    margin-right: 0.5rem; } }
 
 .post-item * {
   color: #000;
@@ -451,7 +461,7 @@ footer * {
   .professors {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between; }
+    justify-content: space-evenly; }
     .professors .professor-post-item {
       width: 220px;
       height: 145px; }
@@ -503,14 +513,19 @@ footer * {
     border-bottom-left-radius: 0.2rem; }
     .metabox-link--home-single {
       border-radius: 0.2rem; }
-  .metabox-item--date, .metabox-link--events {
+  .metabox-item--date, .metabox-link--parent, .metabox-link--past-events {
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     background-color: #f1c759; }
-    .metabox-item--date p, .metabox-link--events p {
+    .metabox-item--date p, .metabox-link--parent p, .metabox-link--past-events p {
       font-weight: 600; }
-  .metabox-link--home, .metabox-link--events {
+  .metabox-link--home, .metabox-link--parent {
     cursor: pointer; }
+  .metabox-item--date {
+    background-color: #d9b75e; }
+  .metabox .remove-border-radius {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
 
 @media screen and (min-width: 500px) {
   .metabox {

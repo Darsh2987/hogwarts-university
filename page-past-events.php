@@ -7,13 +7,14 @@
 <?php $homePage = get_page_by_title("Home Page");?>
   <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
   <?php $eventsPage = get_page_by_title("Events");?>
-  <a class="metabox-item metabox-link--events" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Events Home</a>
+  <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Upcoming Events</a>
 </div>  
 
 <section class="all-events-summary section-width">
   <?php
     $today = date("Ymd");
     $pastEvents = new WP_Query(array(
+      "paged" => get_query_var("paged", 1),
       "post_type" => "event",
       "meta_key" => "event_date",
       "orderby" => "meta_value_num",
@@ -35,7 +36,9 @@
   ?>
 
   <?php
-    echo paginate_links();
+    echo paginate_links(array(
+      "total" => $pastEvents->max_num_pages
+    ));
   ?>
 
 <hr class="section-break">

@@ -40,7 +40,7 @@
   .professors {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     .professor-post-item {
       width: 220px;

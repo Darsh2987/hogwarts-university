@@ -9,17 +9,19 @@
 </section>
 
 <div class="metabox section-width">
+<?php $homePage = get_page_by_title("Home Page");?>
+  <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
   <?php $blogPage = get_page_by_title("Blog");?>
-  <a class="metabox-item metabox-link--home metabox-link--home-single" href="<?php echo get_permalink($blogPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Blog Home</a>
-</div>  
+  <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($blogPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Blog Home</a>
+</div>   
 
 <section class="section-width">
   <?php 
 
   $authorPosts = new WP_Query(array(
+    "paged" => get_query_var("paged", 1),
     "post_type" => "post",
     'author' => $author->ID,
-    "posts_per_page" => "-1"
   ));
     while($authorPosts->have_posts()) {
       $authorPosts->the_post(); ?>
@@ -34,6 +36,9 @@
       </div>
 
   <?php }
+  echo paginate_links(array(
+    "total" => $authorPosts->max_num_pages
+  ));
   ?>
 </section>
   

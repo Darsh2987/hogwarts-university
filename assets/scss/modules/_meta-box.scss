@@ -22,7 +22,8 @@
   }
 
   &-item--date,
-  &-link--events {
+  &-link--parent,
+  &-link--past-events {
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     background-color: $yellow-main;
@@ -33,8 +34,17 @@
   }
 
   &-link--home,
-  &-link--events {
+  &-link--parent {
     cursor: pointer;
+  }
+
+  &-item--date {
+    background-color: $yellow-hover;
+  }
+
+  .remove-border-radius {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 

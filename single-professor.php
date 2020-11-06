@@ -6,8 +6,10 @@
     get_template_part("template-parts/single-banner")?>
 
     <div class="metabox section-width">
+      <?php $homePage = get_page_by_title("Home Page");?>
+      <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
       <?php $professorsPage = get_page_by_title("Professors");?>
-      <a class="metabox-item metabox-link--home metabox-link--home-single" href="<?php echo get_permalink($professorsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Professors Home</a>
+      <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($professorsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> All Professors</a>
     </div>  
 
     <?php get_template_part("template-parts/single-post-content"); ?>
@@ -57,7 +59,10 @@
             $homepageEvents->the_post();
               get_template_part("template-parts/event", "summary");
           }
-        }
+        } else { ?>
+          <hr class="section-break">
+          <h2>No Upcoming Events</h2>
+        <?php }
       ?>
     </section>
 

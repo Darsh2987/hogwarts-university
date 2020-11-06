@@ -13,8 +13,8 @@
   <?php 
 
   $all = new WP_Query(array(
+    "paged" => get_query_var("paged", 1),
     "post_type" => "post",
-    "posts_per_page" => -1
   ));
     while($all->have_posts()) {
       $all->the_post(); ?>
@@ -40,6 +40,9 @@
       </div>
 
   <?php }
+  echo paginate_links(array(
+    "total" => $all->max_num_pages
+  ));
   ?>
 </section>
   
