@@ -55,6 +55,7 @@
                 </div>
               <?php } ?>
             </div>
+            <hr class="section-break">
           <?php }
         ?>
       </div>
@@ -66,17 +67,20 @@
       <?php
         $relatedSubjects = get_field("related_subjects");
         if ($relatedSubjects) { ?>
-        <hr class="section-break">
           <h2>Related Subject</h2>
           <?php foreach($relatedSubjects as $subject) { ?>
             <div class="post-item post-item--subjects">
               <h3><a href="<?php echo get_the_permalink($subject); ?>"><?php echo get_the_title($subject); ?></a></h3>
             </div>
+            <hr class="section-break">
+            }
           <?php }
         }
       ?>
     </section>
-
+    <?php 
+      comments_template();
+    ?>
     
   <?php }
 ?>

@@ -352,6 +352,113 @@ footer * {
     height: 136px;
     margin-right: 0.5rem; } }
 
+.metabox {
+  display: flex;
+  position: relative;
+  bottom: 26px;
+  font-size: 0.85rem; }
+  .metabox-item {
+    background-color: #b6191a;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+  .metabox-link--home {
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem; }
+    .metabox-link--home-single {
+      border-radius: 0.2rem; }
+  .metabox-link--home:hover {
+    background-color: #8b0000; }
+  .metabox-link--parent, .metabox-link--past-events {
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    background-color: #f1c759; }
+    .metabox-link--parent p, .metabox-link--past-events p {
+      font-weight: 600; }
+  .metabox-link--parent:hover, .metabox-link--past-events:hover {
+    background-color: #d9b75e; }
+  .metabox-link--home, .metabox-link--parent {
+    cursor: pointer; }
+
+@media screen and (min-width: 500px) {
+  .metabox {
+    bottom: 60px;
+    margin-bottom: -2rem;
+    font-size: 1rem; } }
+
+.comments-section * {
+  color: #000; }
+
+.comments-section h2 {
+  margin-bottom: 1.5rem; }
+
+.comments-section .comment-user--block {
+  display: flex;
+  padding: 1rem;
+  background-color: rgba(182, 25, 26, 0.1);
+  border-radius: 0.2rem; }
+
+.comments-section .comment-user--block:nth-of-type(even) {
+  background-color: rgba(241, 199, 89, 0.3); }
+  .comments-section .comment-user--block:nth-of-type(even) .comment-user--date {
+    background-color: #b6191a; }
+    .comments-section .comment-user--block:nth-of-type(even) .comment-user--date p {
+      color: #fff; }
+
+.comments-section .comment-user--avatar {
+  margin-right: 1.5rem; }
+
+.comments-section .comment-user--name {
+  font-size: 1rem;
+  margin-bottom: 1.5rem; }
+
+.comments-section .comment-user--date {
+  font-size: 0.8rem;
+  background-color: #f1c759;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  border-radius: 0.2rem; }
+
+.comments-section .comment-user--comment-text {
+  font-size: 1.3rem; }
+
+.comments-section--form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem; }
+
+.comments-section .comment-form {
+  display: flex;
+  flex-direction: column; }
+  .comments-section .comment-form textarea {
+    min-height: 100px;
+    max-height: 100px;
+    height: 100px;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1rem; }
+  .comments-section .comment-form button,
+  .comments-section .comment-form .submit {
+    border: none;
+    border-radius: 0.2rem;
+    outline: none;
+    padding: 0.5rem;
+    background-color: #b6191a;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .comments-section .comment-form button:hover,
+  .comments-section .comment-form .submit:hover {
+    background-color: #8b0000;
+    color: #f1c759; }
+  .comments-section .comment-form button:hover .submit {
+    background-color: #8b0000;
+    color: #f1c759; }
+
 .post-item * {
   color: #000;
   margin-bottom: 1rem; }
@@ -508,39 +615,4 @@ footer * {
   .single-post-content-container p {
     font-size: 1.3rem;
     line-height: 1.8rem; } }
-
-.metabox {
-  display: flex;
-  position: relative;
-  bottom: 26px;
-  font-size: 0.85rem; }
-  .metabox-item {
-    background-color: #b6191a;
-    border: none;
-    outline: none;
-    padding: 1rem;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
-  .metabox-link--home {
-    border-top-left-radius: 0.2rem;
-    border-bottom-left-radius: 0.2rem; }
-    .metabox-link--home-single {
-      border-radius: 0.2rem; }
-  .metabox-link--home:hover {
-    background-color: #8b0000; }
-  .metabox-link--parent, .metabox-link--past-events {
-    border-top-right-radius: 0.2rem;
-    border-bottom-right-radius: 0.2rem;
-    background-color: #f1c759; }
-    .metabox-link--parent p, .metabox-link--past-events p {
-      font-weight: 600; }
-  .metabox-link--parent:hover, .metabox-link--past-events:hover {
-    background-color: #d9b75e; }
-  .metabox-link--home, .metabox-link--parent {
-    cursor: pointer; }
-
-@media screen and (min-width: 500px) {
-  .metabox {
-    bottom: 60px;
-    margin-bottom: -2rem;
-    font-size: 1rem; } }
 

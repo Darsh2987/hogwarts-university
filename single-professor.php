@@ -57,8 +57,9 @@
           <h2>Upcoming Events</h2>
           <?php while($homepageEvents->have_posts()) {
             $homepageEvents->the_post();
-              get_template_part("template-parts/event", "summary");
-          }
+              get_template_part("template-parts/event", "summary"); ?>
+              <hr class="section-break">
+          <?php }
         } else { ?>
           <hr class="section-break">
           <h2>No Upcoming Events</h2>
@@ -67,6 +68,10 @@
     </section>
 
     <?php wp_reset_postdata();?> 
+
+    <?php 
+      comments_template();
+    ?>
 
   <?php }
 ?>

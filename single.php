@@ -22,6 +22,10 @@
 
     <?php get_template_part("template-parts/single-post-content"); ?>
 
+    <?php 
+      comments_template();
+    ?>
+
   <?php }
 ?>
   

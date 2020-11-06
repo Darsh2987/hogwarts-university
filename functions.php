@@ -51,4 +51,42 @@ function hogwarts_adjust_queries($query) {
 
 add_action("pre_get_posts", "hogwarts_adjust_queries");
 
+function custom_comment() { ?>
+<div class="comment-user--block">
+  <div class="comment-user--avatar">
+    <?php
+    global $current_user; 
+    if (is_user_logged_in()): get_currentUserInfo();
+    echo get_avatar($current_user->ID, 80);
+    endif
+    ?>
+  </div>
+  <div class="comment-user--content">
+    <div class="comment-user--date"><p><?php echo get_comment_date(); ?></p></div>
+    <div class="comment-user--name"><h4>Comment by <?php echo get_comment_author(); ?><h4></div>
+    <div class="comment-user--comment-text"><p><?php echo get_comment_text(); ?><p></div>
+  </div>
+</div>
+<hr class="section-break">
+<?php }
+
+function custom_comment_form() { ?>
+<div class="comments-section--form">
+  <h3>
+    <?php if(have_comments()) {
+      echo "Leave a Comment";
+    }
+    ?>
+  </h3>
+  <form action="http://hogwarts-university.local/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+  <textarea name="comment" id="comment" require="required"></textarea>
+  <button class="form-submit">
+    <input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
+    <input type="hidden" name="comment_post_ID" value="226" id="comment_post_ID">
+    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+  </button>
+  </form>
+</div>
+<?php }
+
 ?>
