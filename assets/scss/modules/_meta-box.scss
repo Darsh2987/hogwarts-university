@@ -21,7 +21,10 @@
     }
   }
 
-  &-item--date,
+  &-link--home:hover {
+    background-color: $red-hover;
+  }
+
   &-link--parent,
   &-link--past-events {
     border-top-right-radius: 0.2rem;
@@ -33,18 +36,14 @@
     }
   }
 
-  &-link--home,
-  &-link--parent {
-    cursor: pointer;
-  }
-
-  &-item--date {
+  &-link--parent:hover,
+  &-link--past-events:hover {
     background-color: $yellow-hover;
   }
 
-  .remove-border-radius {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  &-link--home,
+  &-link--parent {
+    cursor: pointer;
   }
 }
 

@@ -24,7 +24,7 @@
     }
 
     button:hover {
-      background: linear-gradient($red-main, $red-hover);
+      background: $red-hover;
     }
   }
 
@@ -36,7 +36,7 @@
     }
 
     button:hover {
-      background: linear-gradient($yellow-main, $yellow-hover);
+      background: $yellow-hover;
     }
   }
 

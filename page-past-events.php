@@ -7,7 +7,7 @@
 <?php $homePage = get_page_by_title("Home Page");?>
   <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
   <?php $eventsPage = get_page_by_title("Events");?>
-  <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Upcoming Events</a>
+  <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($eventsPage->ID); ?>"><i class="far fa-arrow-alt-circle-left" aria-hidden="true"></i> Upcoming Events</a>
 </div>  
 
 <section class="all-events-summary section-width">

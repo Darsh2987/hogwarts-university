@@ -9,7 +9,7 @@
       <?php $homePage = get_page_by_title("Home Page");?>
       <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
       <?php $professorsPage = get_page_by_title("Professors");?>
-      <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($professorsPage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> All Professors</a>
+      <a class="metabox-item metabox-link--parent" href="<?php echo get_permalink($professorsPage->ID); ?>"><i class="far fa-arrow-alt-circle-left" aria-hidden="true"></i> All Professors</a>
     </div>  
 
     <?php get_template_part("template-parts/single-post-content"); ?>

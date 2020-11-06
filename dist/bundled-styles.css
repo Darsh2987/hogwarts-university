@@ -62,6 +62,12 @@ button {
     font-size: 1.5rem; }
   .header nav {
     display: none; }
+    .header nav .menu .menu-item a:hover {
+      color: #b6191a; }
+    .header nav .menu .current-menu-item a {
+      color: #f1c759; }
+    .header nav .menu .current-menu-item a:hover {
+      color: #f1c759; }
   .header--mobile-icons {
     display: flex; }
     .header--mobile-icons .hamburger-icon {
@@ -192,6 +198,9 @@ footer * {
       padding: 0.8rem 1rem;
       background-color: #b6191a;
       border-radius: 0.5rem; }
+    .page-banner--content .btn:hover {
+      background: #8b0000;
+      color: #f1c759; }
 
 @media screen and (min-width: 500px) {
   .page-banner--content-template {
@@ -231,14 +240,14 @@ footer * {
     font-size: 1.3rem;
     cursor: pointer; }
   .post-summary-container .post-summary-split button:hover {
-    background: linear-gradient(#b6191a, #8b0000); }
+    background: #8b0000; }
 
 .post-summary-container .post-summary-split--one {
   background-color: #fbf1d5; }
   .post-summary-container .post-summary-split--one button {
     background-color: #f1c759; }
   .post-summary-container .post-summary-split--one button:hover {
-    background: linear-gradient(#f1c759, #d9b75e); }
+    background: #d9b75e; }
 
 .post-summary-container .post-summary-split--two {
   background-color: #fffcf5; }
@@ -513,19 +522,18 @@ footer * {
     border-bottom-left-radius: 0.2rem; }
     .metabox-link--home-single {
       border-radius: 0.2rem; }
-  .metabox-item--date, .metabox-link--parent, .metabox-link--past-events {
+  .metabox-link--home:hover {
+    background-color: #8b0000; }
+  .metabox-link--parent, .metabox-link--past-events {
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     background-color: #f1c759; }
-    .metabox-item--date p, .metabox-link--parent p, .metabox-link--past-events p {
+    .metabox-link--parent p, .metabox-link--past-events p {
       font-weight: 600; }
+  .metabox-link--parent:hover, .metabox-link--past-events:hover {
+    background-color: #d9b75e; }
   .metabox-link--home, .metabox-link--parent {
     cursor: pointer; }
-  .metabox-item--date {
-    background-color: #d9b75e; }
-  .metabox .remove-border-radius {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; }
 
 @media screen and (min-width: 500px) {
   .metabox {
