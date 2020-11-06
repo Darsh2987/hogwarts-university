@@ -394,7 +394,6 @@ footer * {
   margin-bottom: 1.5rem; }
 
 .comments-section .comment-user--block {
-  display: flex;
   padding: 1rem;
   background-color: rgba(182, 25, 26, 0.1);
   border-radius: 0.2rem; }
@@ -458,6 +457,10 @@ footer * {
   .comments-section .comment-form button:hover .submit {
     background-color: #8b0000;
     color: #f1c759; }
+
+@media screen and (min-width: 500px) {
+  .comments-section .comment-user--block {
+    display: flex; } }
 
 .post-item * {
   color: #000;

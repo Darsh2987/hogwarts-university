@@ -9,7 +9,6 @@
 
   .comment-user {
     &--block {
-      display: flex;
       padding: 1rem;
       background-color: rgba($red-main, 0.1);
       border-radius: 0.2rem;
@@ -95,5 +94,11 @@
       background-color: $red-hover;
       color: $yellow-main;
     }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .comments-section .comment-user--block {
+    display: flex;
   }
 }
