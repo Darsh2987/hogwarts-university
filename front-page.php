@@ -78,13 +78,14 @@
               </p>
             </div>
           </div>
-      <?php }
+      <?php } wp_reset_postdata();
     ?>
     <?php $blogPage = get_page_by_title("Blog");?>
     <button><a href="<?php echo get_permalink($blogPage->ID); ?>">View All Blog Posts</a></button>
   </div>
 </section>
 
+<?php echo do_shortcode('[smartslider3 slider="4"]'); ?>
 
   
 <?php get_footer(); ?>

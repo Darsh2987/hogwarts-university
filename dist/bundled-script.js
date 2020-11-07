@@ -19,7 +19,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_imports_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/imports.scss */ \"./assets/scss/imports.scss\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\n/* ===============================================================\r\n  Search / Live Overlay Results\r\n=============================================================== */\r\nclass Search {\r\n  // 1. describe and create /  initiate our object\r\n  constructor() {\r\n    this.addSearchHTML();\r\n    this.resultsDiv = document.querySelector(\"#search-overlay__results\");\r\n    this.openButton = document.querySelectorAll(\".js-search-trigger\");\r\n    this.closeButton = document.querySelector(\".search-overlay__close\");\r\n    this.searchOverlay = document.querySelector(\".search-overlay\");\r\n    this.searchField = document.querySelector(\"#search-term\");\r\n    this.isOverlayOpen = false;\r\n    this.isSpinnerVisible = false;\r\n    this.previousValue;\r\n    this.typingTimer;\r\n    this.events();\r\n  }\r\n\r\n  // 2. events\r\n  events() {\r\n    this.openButton.forEach((el) => {\r\n      el.addEventListener(\"click\", (e) => {\r\n        e.preventDefault();\r\n        this.openOverlay();\r\n      });\r\n    });\r\n\r\n    this.closeButton.addEventListener(\"click\", () => this.closeOverlay());\r\n    document.addEventListener(\"keydown\", (e) => this.keyPressDispatcher(e));\r\n    this.searchField.addEventListener(\"keyup\", () => this.typingLogic());\r\n  }\r\n\r\n  // 3. methods (function, action...)\r\n  typingLogic() {\r\n    if (this.searchField.value != this.previousValue) {\r\n      clearTimeout(this.typingTimer);\r\n\r\n      if (this.searchField.value) {\r\n        if (!this.isSpinnerVisible) {\r\n          this.resultsDiv.innerHTML = '<div class=\"spinner-loader\"></div>';\r\n          this.isSpinnerVisible = true;\r\n        }\r\n        this.typingTimer = setTimeout(this.getResults.bind(this), 750);\r\n      } else {\r\n        this.resultsDiv.innerHTML = \"\";\r\n        this.isSpinnerVisible = false;\r\n      }\r\n    }\r\n\r\n    this.previousValue = this.searchField.value;\r\n  }\r\n\r\n  async getResults() {\r\n    try {\r\n      const response = await axios__WEBPACK_IMPORTED_MODULE_1___default().get(universityData.root_url + \"/wp-json/university/v1/search?term=\" + this.searchField.value);\r\n      const results = response.data;\r\n      this.resultsDiv.innerHTML = `\r\n        <div class=\"search-results\">\r\n\r\n          <div class=\"search-results--general-info\">\r\n            <h2 class=\"search-overlay__section-title\">General Information</h2>\r\n            ${results.generalInfo.length ? '<ul class=\"link-list min-list\">' : \"<p>No general information matches that search.</p>\"}\r\n              ${results.generalInfo.map((item) => `<li><a href=\"${item.permalink}\">${item.title}</a> ${item.postType == \"post\" ? `by ${item.authorName}` : \"\"}</li>`).join(\"\")}\r\n            ${results.generalInfo.length ? \"</ul>\" : \"\"}\r\n          </div>\r\n\r\n          <div class=\"search-results--programs\">\r\n            <h2 class=\"search-overlay__section-title\">Programs</h2>\r\n            ${results.programs.length ? '<ul class=\"link-list min-list\">' : `<p>No programs match that search. <a href=\"${universityData.root_url}/programs\">View all programs</a></p>`}\r\n              ${results.programs.map((item) => `<li><a href=\"${item.permalink}\">${item.title}</a></li>`).join(\"\")}\r\n            ${results.programs.length ? \"</ul>\" : \"\"}\r\n          </div>\r\n\r\n          <div class=\"search-results--professors\">\r\n            <h2 class=\"search-overlay__section-title\">Professors</h2>\r\n            ${results.professors.length ? '<ul class=\"professor-cards\">' : `<p>No professors match that search.</p>`}\r\n              ${results.professors\r\n                .map(\r\n                  (item) => `\r\n                <li class=\"professor-card__list-item\">\r\n                  <a class=\"professor-card\" href=\"${item.permalink}\">\r\n                    <img class=\"professor-card__image\" src=\"${item.image}\">\r\n                    <span class=\"professor-card__name\">${item.title}</span>\r\n                  </a>\r\n                </li>\r\n              `\r\n                )\r\n                .join(\"\")}\r\n            ${results.professors.length ? \"</ul>\" : \"\"}\r\n          </div>\r\n\r\n          <div class=\"search-results--events\">\r\n            <h2 class=\"search-overlay__section-title\">Events</h2>\r\n            ${results.events.length ? \"\" : `<p>No events match that search. <a href=\"${universityData.root_url}/events\">View all events</a></p>`}\r\n              ${results.events\r\n                .map(\r\n                  (item) => `\r\n                <div class=\"event-summary\">\r\n                  <a class=\"event-summary__date t-center\" href=\"${item.permalink}\">\r\n                    <span class=\"event-summary__month\">${item.month}</span>\r\n                    <span class=\"event-summary__day\">${item.day}</span>  \r\n                  </a>\r\n                  <div class=\"event-summary__content\">\r\n                    <h5 class=\"event-summary__title headline headline--tiny\"><a href=\"${item.permalink}\">${item.title}</a></h5>\r\n                    <p>${item.description} <a href=\"${item.permalink}\" class=\"nu gray\">Learn more</a></p>\r\n                  </div>\r\n                </div>\r\n              `\r\n                )\r\n                .join(\"\")}\r\n            </div>\r\n          </div>\r\n        </div>\r\n      `;\r\n      this.isSpinnerVisible = false;\r\n    } catch (e) {\r\n      console.log(e);\r\n    }\r\n  }\r\n\r\n  keyPressDispatcher(e) {\r\n    if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != \"INPUT\" && document.activeElement.tagName != \"TEXTAREA\") {\r\n      this.openOverlay();\r\n    }\r\n\r\n    if (e.keyCode == 27 && this.isOverlayOpen) {\r\n      this.closeOverlay();\r\n    }\r\n  }\r\n\r\n  openOverlay() {\r\n    this.searchOverlay.classList.add(\"search-overlay--active\");\r\n    document.body.classList.add(\"body-no-scroll\");\r\n    this.searchField.value = \"\";\r\n    setTimeout(() => this.searchField.focus(), 301);\r\n    console.log(\"our open method just ran!\");\r\n    this.isOverlayOpen = true;\r\n    return false;\r\n  }\r\n\r\n  closeOverlay() {\r\n    this.searchOverlay.classList.remove(\"search-overlay--active\");\r\n    document.body.classList.remove(\"body-no-scroll\");\r\n    console.log(\"our close method just ran!\");\r\n    this.isOverlayOpen = false;\r\n  }\r\n\r\n  addSearchHTML() {\r\n    document.body.insertAdjacentHTML(\r\n      \"beforeend\",\r\n      `\r\n      <div class=\"search-overlay\">\r\n        <div class=\"search-overlay__top\">\r\n          <div class=\"container\">\r\n            <i class=\"fa fa-search search-overlay__icon\" aria-hidden=\"true\"></i>\r\n            <input type=\"text\" class=\"search-term\" placeholder=\"What are you looking for?\" id=\"search-term\">\r\n            <i class=\"fa fa-window-close search-overlay__close\" aria-hidden=\"true\"></i>\r\n          </div>\r\n        </div>\r\n        \r\n        <div class=\"container section-width\">\r\n          <div id=\"search-overlay__results\"></div>\r\n        </div>\r\n\r\n      </div>\r\n    `\r\n    );\r\n  }\r\n}\r\n\r\nnew Search();\r\n\n\n//# sourceURL=webpack://hogwarts-university/./assets/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_imports_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/imports.scss */ \"./assets/scss/imports.scss\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\n/* ===============================================================\r\n  Search / Live Overlay Results\r\n=============================================================== */\r\nclass Search {\r\n  // 1. describe and create /  initiate our object\r\n  constructor() {\r\n    this.addSearchHTML();\r\n    this.resultsDiv = document.querySelector(\"#search-overlay__results\");\r\n    this.openButton = document.querySelectorAll(\".js-search-trigger\");\r\n    this.closeButton = document.querySelector(\".search-overlay__close\");\r\n    this.searchOverlay = document.querySelector(\".search-overlay\");\r\n    this.searchField = document.querySelector(\"#search-term\");\r\n    this.isOverlayOpen = false;\r\n    this.isSpinnerVisible = false;\r\n    this.previousValue;\r\n    this.typingTimer;\r\n    this.events();\r\n  }\r\n\r\n  // 2. events\r\n  events() {\r\n    this.openButton.forEach((el) => {\r\n      el.addEventListener(\"click\", (e) => {\r\n        e.preventDefault();\r\n        this.openOverlay();\r\n      });\r\n    });\r\n\r\n    this.closeButton.addEventListener(\"click\", () => this.closeOverlay());\r\n    document.addEventListener(\"keydown\", (e) => this.keyPressDispatcher(e));\r\n    this.searchField.addEventListener(\"keyup\", () => this.typingLogic());\r\n  }\r\n\r\n  // 3. methods (function, action...)\r\n  typingLogic() {\r\n    if (this.searchField.value != this.previousValue) {\r\n      clearTimeout(this.typingTimer);\r\n\r\n      if (this.searchField.value) {\r\n        if (!this.isSpinnerVisible) {\r\n          this.resultsDiv.innerHTML = '<div class=\"spinner-loader\"></div>';\r\n          this.isSpinnerVisible = true;\r\n        }\r\n        this.typingTimer = setTimeout(this.getResults.bind(this), 750);\r\n      } else {\r\n        this.resultsDiv.innerHTML = \"\";\r\n        this.isSpinnerVisible = false;\r\n      }\r\n    }\r\n\r\n    this.previousValue = this.searchField.value;\r\n  }\r\n\r\n  async getResults() {\r\n    try {\r\n      const response = await axios__WEBPACK_IMPORTED_MODULE_1___default().get(universityData.root_url + \"/wp-json/university/v1/search?term=\" + this.searchField.value);\r\n      const results = response.data;\r\n      this.resultsDiv.innerHTML = `\r\n        <div class=\"search-results\">\r\n\r\n          <div class=\"search-results--general-info\">\r\n            <h2 class=\"search-overlay__section-title\">General Information</h2>\r\n            ${results.generalInfo.length ? '<ul class=\"link-list min-list\">' : \"<p>No general information matches that search.</p>\"}\r\n              ${results.generalInfo.map((item) => `<li><a href=\"${item.permalink}\">${item.title}</a> ${item.postType == \"post\" ? `by ${item.authorName}` : \"\"}</li>`).join(\"\")}\r\n            ${results.generalInfo.length ? \"</ul>\" : \"\"}\r\n          </div>\r\n\r\n          <div class=\"search-results--programs\">\r\n            <h2 class=\"search-overlay__section-title\">Programs</h2>\r\n            ${results.programs.length ? '<ul class=\"link-list min-list\">' : `<p>No programs match that search.</p>`}\r\n              ${results.programs.map((item) => `<li><a href=\"${item.permalink}\">${item.title}</a></li>`).join(\"\")}\r\n            ${results.programs.length ? \"</ul>\" : \"\"}\r\n          </div>\r\n\r\n          <div class=\"search-results--professors\">\r\n            <h2 class=\"search-overlay__section-title\">Professors</h2>\r\n            ${results.professors.length ? '<ul class=\"professor-cards\">' : `<p>No professors match that search.</p>`}\r\n              ${results.professors\r\n                .map(\r\n                  (item) => `\r\n                <li class=\"professor-card__list-item\">\r\n                  <a class=\"professor-card\" href=\"${item.permalink}\">\r\n                    <img class=\"professor-card__image\" src=\"${item.image}\">\r\n                    <span class=\"professor-card__name\">${item.title}</span>\r\n                  </a>\r\n                </li>\r\n              `\r\n                )\r\n                .join(\"\")}\r\n            ${results.professors.length ? \"</ul>\" : \"\"}\r\n          </div>\r\n\r\n          <div class=\"search-results--events\">\r\n            <h2 class=\"search-overlay__section-title\">Events</h2>\r\n            ${results.events.length ? \"\" : `<p>No events match that search.</p>`}\r\n              ${results.events\r\n                .map(\r\n                  (item) => `\r\n                <div class=\"event-summary\">\r\n                  <a class=\"event-summary__date t-center\" href=\"${item.permalink}\">\r\n                    <span class=\"event-summary__month\">${item.month}</span>\r\n                    <span class=\"event-summary__day\">${item.day}</span>  \r\n                  </a>\r\n                  <div class=\"event-summary__content\">\r\n                    <h5 class=\"event-summary__title headline headline--tiny\"><a href=\"${item.permalink}\">${item.title}</a></h5>\r\n                    <p>${item.description} <a href=\"${item.permalink}\" class=\"nu gray\">Learn more</a></p>\r\n                  </div>\r\n                </div>\r\n              `\r\n                )\r\n                .join(\"\")}\r\n            </div>\r\n          </div>\r\n        </div>\r\n      `;\r\n      this.isSpinnerVisible = false;\r\n    } catch (e) {\r\n      console.log(e);\r\n    }\r\n  }\r\n\r\n  keyPressDispatcher(e) {\r\n    if (e.keyCode == 83 && !this.isOverlayOpen && document.activeElement.tagName != \"INPUT\" && document.activeElement.tagName != \"TEXTAREA\") {\r\n      this.openOverlay();\r\n    }\r\n\r\n    if (e.keyCode == 27 && this.isOverlayOpen) {\r\n      this.closeOverlay();\r\n    }\r\n  }\r\n\r\n  openOverlay() {\r\n    this.searchOverlay.classList.add(\"search-overlay--active\");\r\n    document.body.classList.add(\"body-no-scroll\");\r\n    this.searchField.value = \"\";\r\n    setTimeout(() => this.searchField.focus(), 301);\r\n    console.log(\"our open method just ran!\");\r\n    this.isOverlayOpen = true;\r\n    return false;\r\n  }\r\n\r\n  closeOverlay() {\r\n    this.searchOverlay.classList.remove(\"search-overlay--active\");\r\n    document.body.classList.remove(\"body-no-scroll\");\r\n    console.log(\"our close method just ran!\");\r\n    this.isOverlayOpen = false;\r\n  }\r\n\r\n  addSearchHTML() {\r\n    document.body.insertAdjacentHTML(\r\n      \"beforeend\",\r\n      `\r\n      <div class=\"search-overlay\">\r\n        <div class=\"search-overlay__top\">\r\n          <div class=\"container\">\r\n            <i class=\"fa fa-search search-overlay__icon\" aria-hidden=\"true\"></i>\r\n            <input type=\"text\" class=\"search-term\" placeholder=\"What are you looking for?\" id=\"search-term\">\r\n            <i class=\"fa fa-window-close search-overlay__close\" aria-hidden=\"true\"></i>\r\n          </div>\r\n        </div>\r\n        \r\n        <div class=\"container section-width\">\r\n          <div id=\"search-overlay__results\"></div>\r\n        </div>\r\n\r\n      </div>\r\n    `\r\n    );\r\n  }\r\n}\r\n\r\nnew Search();\r\n\n\n//# sourceURL=webpack://hogwarts-university/./assets/js/app.js?");
 
 /***/ }),
 
@@ -43,6 +43,7 @@ eval("module.exports = __webpack_require__(/*! ./lib/axios */ \"./node_modules/a
   \************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56,6 +57,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 50:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -69,6 +71,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 19:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -82,6 +85,7 @@ eval("\n\n/**\n * A `Cancel` is an object that is thrown when an operation is ca
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 57:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -95,6 +99,7 @@ eval("\n\nvar Cancel = __webpack_require__(/*! ./Cancel */ \"./node_modules/axio
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -108,6 +113,7 @@ eval("\n\nmodule.exports = function isCancel(value) {\n  return !!(value && valu
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 95:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -121,6 +127,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \***********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 52:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -134,6 +141,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -147,6 +155,7 @@ eval("\n\nvar isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL *
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -160,6 +169,7 @@ eval("\n\nvar enhanceError = __webpack_require__(/*! ./enhanceError */ \"./node_
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -173,6 +183,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -186,6 +197,7 @@ eval("\n\n/**\n * Update an Error with the specified config, error code, and res
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -199,6 +211,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios
   \***********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -212,6 +225,7 @@ eval("\n\nvar createError = __webpack_require__(/*! ./createError */ \"./node_mo
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -225,6 +239,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 98:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -238,6 +253,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/axios/
   \************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -251,6 +267,7 @@ eval("\n\nmodule.exports = function bind(fn, thisArg) {\n  return function wrap(
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -264,6 +281,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -277,6 +295,7 @@ eval("\n\n/**\n * Creates a new URL by combining the specified URLs\n *\n * @par
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -290,6 +309,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \*********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -303,6 +323,7 @@ eval("\n\n/**\n * Determines whether the specified URL is absolute\n *\n * @para
   \***********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -316,6 +337,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \***************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -329,6 +351,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ../utils */ \"./node_modules/axios
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 27:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -342,6 +365,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./../utils */ \"./node_modules/axi
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -355,6 +379,7 @@ eval("\n\n/**\n * Syntactic sugar for invoking a function and expanding an array
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 328:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";

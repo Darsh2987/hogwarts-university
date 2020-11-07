@@ -70,7 +70,7 @@ class Search {
 
           <div class="search-results--programs">
             <h2 class="search-overlay__section-title">Programs</h2>
-            ${results.programs.length ? '<ul class="link-list min-list">' : `<p>No programs match that search. <a href="${universityData.root_url}/programs">View all programs</a></p>`}
+            ${results.programs.length ? '<ul class="link-list min-list">' : `<p>No programs match that search.</p>`}
               ${results.programs.map((item) => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
             ${results.programs.length ? "</ul>" : ""}
           </div>
@@ -95,7 +95,7 @@ class Search {
 
           <div class="search-results--events">
             <h2 class="search-overlay__section-title">Events</h2>
-            ${results.events.length ? "" : `<p>No events match that search. <a href="${universityData.root_url}/events">View all events</a></p>`}
+            ${results.events.length ? "" : `<p>No events match that search.</p>`}
               ${results.events
                 .map(
                   (item) => `

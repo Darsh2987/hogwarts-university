@@ -5,6 +5,7 @@
   "author": "Darsh <darsh2987@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "axios": "^0.21.0",
     "copy-webpack-plugin": "*",
     "css-loader": "*",
