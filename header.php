@@ -14,10 +14,11 @@
       <?php wp_nav_menu(array(
         "theme_location" => "headerMenuLocation"
       )); ?>
+      <div class="search-icon js-search-trigger site-header__search-trigger"><i class="fas fa-search"></i></div>
     </nav>
     <div class="header--mobile-icons">
       <div class="hamburger-icon"><i class="fas fa-bars"></i></div>
-      <div class="search-icon"><i class="fas fa-search"></i></div>
+      <div class="search-icon js-search-trigger site-header__search-trigger"><i class="fas fa-search"></i></div>
     </div>
     
   </header>

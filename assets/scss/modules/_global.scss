@@ -20,6 +20,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.body-no-scroll {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }

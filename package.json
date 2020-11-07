@@ -5,6 +5,7 @@
   "author": "Darsh <darsh2987@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.0",
     "copy-webpack-plugin": "*",
     "css-loader": "*",
     "file-loader": "*",

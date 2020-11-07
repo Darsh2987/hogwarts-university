@@ -1,11 +1,31 @@
 <?php
 
+require get_theme_file_path('/inc/like-route.php');
+require get_theme_file_path('/inc/search-route.php');
+
+function university_custom_rest() {
+  register_rest_field('post', 'authorName', array(
+    'get_callback' => function() {return get_the_author();}
+  ));
+
+  register_rest_field('note', 'userNoteCount', array(
+    'get_callback' => function() {return count_user_posts(get_current_user_id(), 'note');}
+  ));
+}
+
+add_action('rest_api_init', 'university_custom_rest');
+
 // Enqueuing style, font-awesome and js files
 function hogwarts_files() {
   wp_enqueue_style("google-fonts", "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;300;400;500&display=swap", false);
   wp_enqueue_style("font-awesome", "https://use.fontawesome.com/releases/v5.15.1/css/all.css");
   wp_enqueue_style("main-styles", get_theme_file_uri("/dist/bundled-styles.css"));
   wp_enqueue_script("main-js", get_theme_file_uri("/dist/bundled-script.js"), NULL, "1.0", true);
+
+  wp_localize_script('main-js', 'universityData', array(
+    'root_url' => get_site_url(),
+    'nonce' => wp_create_nonce('wp_rest')
+  ));
 }
 
 add_action("wp_enqueue_scripts", "hogwarts_files");

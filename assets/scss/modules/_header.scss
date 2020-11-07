@@ -51,7 +51,7 @@
     padding-left: 2rem;
 
     nav {
-      display: unset;
+      display: flex;
 
       .menu {
         display: flex;
@@ -60,6 +60,15 @@
           margin-left: 1rem;
           font-size: 1.2rem;
         }
+      }
+
+      .search-icon {
+        margin-left: 2rem;
+        cursor: pointer;
+      }
+
+      .search-icon .fa-search:hover {
+        color: $red-main;
       }
     }
 

@@ -1,0 +1,136 @@
+.search-results {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+
+  h2 {
+    margin-bottom: 0.5rem;
+    color: #000;
+  }
+
+  p {
+    color: #000;
+  }
+
+  a {
+    color: $red-main;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &--general-info,
+  &--programs,
+  &--professors,
+  &--events {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .professor-card {
+    position: relative;
+  }
+
+  .professor-card__name {
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+    left: 0;
+    background-color: rgba($red-main, 0.8);
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .event-summary {
+    display: flex;
+    align-items: flex-start;
+
+    &__date {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: $yellow-main;
+      padding: 0.5rem 0.85rem;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+      transition: opacity 0.2s ease-in-out;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+
+    &__content {
+      h5 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .search-results {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    a {
+      font-size: 1.3rem;
+    }
+    .professor-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      .professor-card__list-item {
+        margin-right: 0.5rem;
+      }
+    }
+
+    img {
+      width: 205px;
+      height: 136px;
+    }
+
+    .professor-card__name {
+      font-size: 1rem;
+    }
+
+    .event-summary {
+      &__date {
+        font-size: 1.8rem;
+        padding: 0.5rem 1rem;
+      }
+
+      &__content {
+        h5 a {
+          font-size: 1.6rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+
+          .nu {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
