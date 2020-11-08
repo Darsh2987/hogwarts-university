@@ -8,7 +8,7 @@
 </section>
 
 <section class="section-width error-page">
-  <p>Oops, Sorry! Looks like theres been an error. That page or post either could not be found or does not exist. <br><br>Please try search or head back <a href="<?php echo site_url("/home")?>">Home</a>. </p>
+  <p>Oops, Sorry! Looks like there's been an error. That page or post either could not be found or does not exist. <br><br>Please try search or head back <a href="<?php echo site_url("/home")?>">Home</a>. </p>
 </section>
 
 

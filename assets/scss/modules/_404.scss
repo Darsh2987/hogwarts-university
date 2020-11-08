@@ -1,8 +1,15 @@
 .error-page p {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #000;
+  margin: 2rem 0;
 
   a {
     color: $red-main;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .error-page p {
+    font-size: 2.5rem;
   }
 }
