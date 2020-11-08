@@ -916,3 +916,9 @@ footer * {
   .glide__bullets button.glide__bullet--active {
     background-color: #fff; }
 
+.error-page p {
+  font-size: 2.5rem;
+  color: #000; }
+  .error-page p a {
+    color: #b6191a; }
+
