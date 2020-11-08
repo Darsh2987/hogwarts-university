@@ -703,15 +703,24 @@ footer * {
     border-bottom: 1px solid #ddd; }
   .search-results .professor-card {
     position: relative; }
-  .search-results .professor-card__name {
-    position: absolute;
-    right: 0;
-    bottom: 3px;
-    left: 0;
-    background-color: rgba(182, 25, 26, 0.8);
-    color: #fff;
-    padding: 0.5rem;
-    font-size: 1.2rem; }
+    .search-results .professor-card__list-item {
+      background-color: #b6191a;
+      overflow: hidden;
+      height: 136px; }
+    .search-results .professor-card__image {
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
+    .search-results .professor-card__image:hover {
+      opacity: 0.8;
+      transform: scale(1.1) rotate(4deg); }
+    .search-results .professor-card__name {
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+      left: 0;
+      background-color: rgba(182, 25, 26, 0.8);
+      color: #fff;
+      padding: 0.5rem;
+      font-size: 1.2rem; }
   .search-results .event-summary {
     display: flex;
     align-items: flex-start;

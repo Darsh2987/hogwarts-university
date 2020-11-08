@@ -58,17 +58,32 @@
 
   .professor-card {
     position: relative;
-  }
 
-  .professor-card__name {
-    position: absolute;
-    right: 0;
-    bottom: 3px;
-    left: 0;
-    background-color: rgba($red-main, 0.8);
-    color: #fff;
-    padding: 0.5rem;
-    font-size: 1.2rem;
+    &__list-item {
+      background-color: $red-main;
+      overflow: hidden;
+      height: 136px;
+    }
+
+    &__image {
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+
+    &__image:hover {
+      opacity: 0.8;
+      transform: scale(1.1) rotate(4deg);
+    }
+
+    &__name {
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+      left: 0;
+      background-color: rgba($red-main, 0.8);
+      color: #fff;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+    }
   }
 
   .event-summary {
