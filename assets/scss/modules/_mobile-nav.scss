@@ -1,0 +1,87 @@
+.header .mobile-menu--hogwarts-logo {
+  z-index: 15;
+
+  a,
+  strong {
+    color: $red-main;
+  }
+}
+
+.nav {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(1.09);
+  transition: opacity 0.3s, transform 0.3s, visibilty 0.3s;
+  position: absolute;
+
+  .menu .menu-item a:hover {
+    color: $red-main;
+  }
+
+  .menu .current-menu-item a {
+    color: $yellow-main;
+  }
+
+  .menu .current-menu-item a:hover {
+    color: $yellow-main;
+  }
+}
+
+.mobile-nav--close .fa-window-close {
+  display: none;
+}
+
+.header .mobile-nav--open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 100%, 0.96);
+  z-index: 10;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+
+  .fa-window-close {
+    display: block;
+    background-color: #fff;
+    font-size: 2rem;
+    color: darkred;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .menu-item {
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    color: $red-main;
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .nav {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    position: relative;
+
+    .menu {
+      display: flex;
+
+      li {
+        margin-left: 1rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

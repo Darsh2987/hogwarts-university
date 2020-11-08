@@ -2,6 +2,7 @@
   position: absolute;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,22 +11,6 @@
 
   h1 {
     font-size: 1.5rem;
-  }
-
-  nav {
-    display: none;
-
-    .menu .menu-item a:hover {
-      color: $red-main;
-    }
-
-    .menu .current-menu-item a {
-      color: $yellow-main;
-    }
-
-    .menu .current-menu-item a:hover {
-      color: $yellow-main;
-    }
   }
 
   &--mobile-icons {
@@ -41,7 +26,7 @@
   }
 
   .search-icon .fa-search {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -50,26 +35,13 @@
     padding-right: 2rem;
     padding-left: 2rem;
 
-    nav {
-      display: flex;
+    .search-icon {
+      margin-left: 2rem;
+      cursor: pointer;
+    }
 
-      .menu {
-        display: flex;
-
-        li {
-          margin-left: 1rem;
-          font-size: 1.2rem;
-        }
-      }
-
-      .search-icon {
-        margin-left: 2rem;
-        cursor: pointer;
-      }
-
-      .search-icon .fa-search:hover {
-        color: $red-main;
-      }
+    .search-icon .fa-search:hover {
+      color: $red-main;
     }
 
     &--mobile-icons {

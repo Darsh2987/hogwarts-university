@@ -2,6 +2,40 @@ import "../scss/imports.scss";
 import axios from "axios";
 
 /* ===============================================================
+  Menu Overlay
+=============================================================== */
+
+class MobileMenu {
+  // 1. Describe and create /  initiate our object
+  constructor() {
+    this.hamburgerIcon = document.querySelector("#hamburger-icon");
+    this.closeMobileMenuBtn = document.querySelector("#mobile-menu--close");
+    this.nav = document.querySelector("#nav");
+    this.siteLogo = document.querySelector("#hogwarts-logo");
+    this.events();
+  }
+
+  // 2. Events
+  events() {
+    this.hamburgerIcon.addEventListener("click", () => this.openMobileMenu());
+    this.closeMobileMenuBtn.addEventListener("click", () => this.closeMobileMenu());
+  }
+
+  // 3. Methods
+  openMobileMenu() {
+    this.nav.classList.add("mobile-nav--open");
+    this.siteLogo.classList.add("mobile-menu--hogwarts-logo");
+  }
+
+  closeMobileMenu() {
+    this.nav.classList.remove("mobile-nav--open");
+    this.siteLogo.classList.remove("mobile-menu--hogwarts-logo");
+  }
+}
+
+new MobileMenu();
+
+/* ===============================================================
   Search / Live Overlay Results
 =============================================================== */
 class Search {
