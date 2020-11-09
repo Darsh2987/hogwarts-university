@@ -822,17 +822,18 @@ footer * {
     margin-bottom: 1.5rem; }
   .header .mobile-nav--open a {
     color: #b6191a;
-    font-size: 2.2rem;
-    font-weight: 500; }
+    font-size: 2.2rem; }
 
 @media screen and (min-width: 650px) {
   .nav {
     visibility: visible;
     opacity: 1;
     display: flex;
-    position: relative; }
+    position: relative;
+    transform: unset; }
     .nav .menu {
-      display: flex; }
+      display: flex;
+      justify-content: center; }
       .nav .menu li {
         margin-left: 1rem;
         font-size: 1.2rem; } }
