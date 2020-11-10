@@ -108,4 +108,11 @@ function custom_comment_form() { ?>
 </div>
 <?php }
 
+add_filter("ai1wm_exclude_content_from_export", "ignoreFiles");
+
+function ignoreFiles($exclude_filters) {
+  $exclude_filters[]  = "themes/hogwarts-university/node_modules";
+  return $exclude_filters;
+}
+
 ?>

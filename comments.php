@@ -12,11 +12,16 @@
       wp_list_comments("type=comment&callback=custom_comment");
     ?>
   </div>
+  <div class="comments-section--form">
   <?php
     if(comments_open()) {
-      comment_form(custom_comment_form(), array(
+      if(have_comments()) { ?>
+        <h3>Leave a Comment</h3>
+      <?php }
+      comment_form(array(
         'title_reply'=>''
       ));
     }
   ?>
+  </div>
 </section>
