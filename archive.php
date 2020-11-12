@@ -1,9 +1,17 @@
 <?php get_header(); ?>
 
 <section class="page-banner">
-<div class="page-banner--background-image" style="background-image: url(<?php $backgroundBanner = get_field("background_banner"); echo  $backgroundBanner["url"] ?>)"></div>
+  <?php 
+    if (get_field("background_banner")) { ?>
+      <div class="page-banner--background-image" style="background-image: url(<?php $backgroundBanner = get_field("background_banner"); echo  $backgroundBanner["sizes"]["pageBanner"] ?>)"></div>
+    <?php } else { ?>
+      <div class="page-banner--background-image" style="background-image: url(<?php echo get_theme_file_uri('/assets/images/hogwarts-banner.png'); ?>)"></div>
+    <?php }
+  ?>
   <div class="page-banner--content page-banner--content-template section-width">
-    <h1 class="title">All Posts by <?php the_author(); ?></h1>
+    <h1 class="title"><?php the_title(); ?></h1>
+    <h2 class="headline">Posted By <?php the_author_posts_link(); ?></h2>
+    <h3><?php the_date("d M Y")?></h3>
   </div>
 </section>
 
