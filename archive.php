@@ -4,7 +4,6 @@
 <div class="page-banner--background-image" style="background-image: url(<?php $backgroundBanner = get_field("background_banner"); echo  $backgroundBanner["url"] ?>)"></div>
   <div class="page-banner--content page-banner--content-template section-width">
     <h1 class="title">All Posts by <?php the_author(); ?></h1>
-    <h2 class="headline"><?php the_field("event_sub_title"); ?></h2>
   </div>
 </section>
 
@@ -17,14 +16,8 @@
 
 <section class="section-width">
   <?php 
-
-  $authorPosts = new WP_Query(array(
-    "paged" => get_query_var("paged", 1),
-    "post_type" => "post",
-    'author' => $author->ID,
-  ));
-    while($authorPosts->have_posts()) {
-      $authorPosts->the_post(); ?>
+    while(have_posts()) {
+      the_post(); ?>
 
       <div class="post-item">
         <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
@@ -36,10 +29,11 @@
       </div>
 
   <?php }
-  echo paginate_links(array(
-    "total" => $authorPosts->max_num_pages
-  ));
+  echo paginate_links();
   ?>
 </section>
+
+
+
   
 <?php get_footer(); ?>
