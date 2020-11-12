@@ -1,6 +1,31 @@
 .login {
   background-color: $red-main;
 
+  .register {
+    display: none;
+  }
+
+  .message,
+  #login_error {
+    margin-top: 1rem;
+    border-left: $yellow-main;
+    color: #000;
+    border-radius: 0.2rem;
+
+    a {
+      color: $red-main;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    strong {
+      color: $red-main;
+    }
+  }
+
   h1 a {
     background-image: none;
     display: unset;
@@ -55,10 +80,6 @@
   .privacy-policy-link {
     color: $yellow-hover;
     text-decoration: underline;
-  }
-
-  .message {
-    display: none;
   }
 
   #reg_passmail {

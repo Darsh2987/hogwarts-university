@@ -994,6 +994,24 @@ footer * {
 
 .login {
   background-color: #b6191a; }
+  .login .register {
+    display: none; }
+  .login .message,
+  .login #login_error {
+    margin-top: 1rem;
+    border-left: #f1c759;
+    color: #000;
+    border-radius: 0.2rem; }
+    .login .message a,
+    .login #login_error a {
+      color: #b6191a;
+      text-decoration: underline; }
+    .login .message a:hover,
+    .login #login_error a:hover {
+      text-decoration: none; }
+    .login .message strong,
+    .login #login_error strong {
+      color: #b6191a; }
   .login h1 a {
     background-image: none;
     display: unset;
@@ -1030,8 +1048,6 @@ footer * {
   .login .privacy-policy-link {
     color: #d9b75e;
     text-decoration: underline; }
-  .login .message {
-    display: none; }
   .login #reg_passmail {
     color: #b6191a;
     font-size: 1rem; }
