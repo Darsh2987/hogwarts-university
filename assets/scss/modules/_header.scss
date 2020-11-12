@@ -2,12 +2,11 @@
   position: absolute;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 3;
-  padding: 1rem;
+  padding: 1rem 2rem;
 
   h1 {
     font-size: 1.5rem;
@@ -28,15 +27,62 @@
   .search-icon .fa-search {
     font-size: 1.3rem;
   }
+
+  &-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    &--btn {
+      background-color: $red-main;
+    }
+
+    &--btn:hover {
+      background-color: $red-hover;
+    }
+
+    &--btn-logout a {
+      display: flex;
+      align-items: center;
+      height: 0;
+    }
+
+    &--avatar img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: -0.5rem;
+    }
+
+    &--btn-signup {
+      background-color: $yellow-main;
+      margin-left: 1rem;
+    }
+
+    &--btn-signup:hover {
+      background-color: $yellow-hover;
+    }
+
+    &--btn,
+    &--btn-signup {
+      border-radius: 0.2rem;
+      padding: 0.7rem;
+    }
+  }
+
+  .header-login .header-login--btn a,
+  .header-login .header-login--btn-signup a {
+    color: #fff;
+  }
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 850px) {
   .header {
     padding-right: 2rem;
     padding-left: 2rem;
 
     .search-icon {
-      margin-left: 2rem;
+      margin-left: 1rem;
       cursor: pointer;
     }
 
@@ -46,6 +92,35 @@
 
     &--mobile-icons {
       display: none;
+    }
+
+    &-login {
+      margin: 0 0 0 1rem;
+
+      &--avatar {
+        line-height: 25px;
+      }
+
+      &--btn-logout .header-login--btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &--avatar img {
+        width: 31.5px;
+        height: 31.5px;
+        border-top-left-radius: 0.2rem;
+        border-bottom-left-radius: 0.2rem;
+      }
+
+      &--btn-signup {
+        margin-left: 0.5rem;
+      }
+
+      &--btn,
+      &--btn-signup {
+        padding: 0.5rem;
+      }
     }
   }
 }

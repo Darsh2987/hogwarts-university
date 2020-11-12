@@ -72,14 +72,7 @@ add_action("pre_get_posts", "hogwarts_adjust_queries");
 
 function custom_comment() { ?>
 <div class="comment-user--block">
-  <div class="comment-user--avatar">
-    <?php
-    global $current_user; 
-    if (is_user_logged_in()): get_currentUserInfo();
-    echo get_avatar($current_user->ID, 80);
-    endif
-    ?>
-  </div>
+  <div class="comment-user--avatar"><?php echo get_avatar(get_the_author_email(), 80);?> </div>
   <div class="comment-user--content">
     <div class="comment-user--date"><p><?php echo get_comment_date(); ?></p></div>
     <div class="comment-user--name"><h4>Comment by <?php echo get_comment_author(); ?><h4></div>
@@ -113,6 +106,28 @@ add_filter("ai1wm_exclude_content_from_export", "ignoreFiles");
 function ignoreFiles($exclude_filters) {
   $exclude_filters[]  = "themes/hogwarts-university/node_modules";
   return $exclude_filters;
+}
+
+// Customize Login Page
+add_filter("login_headerurl", "ourHeaderUrl");
+
+function ourHeaderUrl() {
+  return esc_url(site_url("/"));
+}
+
+// Styles for Login Page
+function OurLoginCss() {
+  wp_enqueue_style("main-styles", get_theme_file_uri("/dist/bundled-styles.css"));
+  wp_enqueue_style("google-fonts", "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;300;400;500&display=swap", false);
+}
+
+add_action("login_enqueue_scripts", "OurLoginCss");
+
+// Change the Login Page Header Title
+add_filter("login_headertitle", "ourLoginTitle");
+
+function ourLoginTitle() {
+  return get_bloginfo("name");
 }
 
 ?>

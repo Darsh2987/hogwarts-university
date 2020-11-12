@@ -26,7 +26,8 @@ li {
 
 button {
   border: none;
-  outline: none; }
+  outline: none;
+  appearance: none; }
 
 .section-width {
   padding: 0 1rem; }
@@ -56,12 +57,11 @@ button {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 3;
-  padding: 1rem; }
+  padding: 1rem 2rem; }
   .header h1 {
     font-size: 1.5rem; }
   .header--mobile-icons {
@@ -72,18 +72,62 @@ button {
     font-size: 1.5rem; }
   .header .search-icon .fa-search {
     font-size: 1.3rem; }
+  .header-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; }
+    .header-login--btn {
+      background-color: #b6191a; }
+    .header-login--btn:hover {
+      background-color: #8b0000; }
+    .header-login--btn-logout a {
+      display: flex;
+      align-items: center;
+      height: 0; }
+    .header-login--avatar img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: -0.5rem; }
+    .header-login--btn-signup {
+      background-color: #f1c759;
+      margin-left: 1rem; }
+    .header-login--btn-signup:hover {
+      background-color: #d9b75e; }
+    .header-login--btn, .header-login--btn-signup {
+      border-radius: 0.2rem;
+      padding: 0.7rem; }
+  .header .header-login .header-login--btn a,
+  .header .header-login .header-login--btn-signup a {
+    color: #fff; }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 850px) {
   .header {
     padding-right: 2rem;
     padding-left: 2rem; }
     .header .search-icon {
-      margin-left: 2rem;
+      margin-left: 1rem;
       cursor: pointer; }
     .header .search-icon .fa-search:hover {
       color: #b6191a; }
     .header--mobile-icons {
-      display: none; } }
+      display: none; }
+    .header-login {
+      margin: 0 0 0 1rem; }
+      .header-login--avatar {
+        line-height: 25px; }
+      .header-login--btn-logout .header-login--btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0; }
+      .header-login--avatar img {
+        width: 31.5px;
+        height: 31.5px;
+        border-top-left-radius: 0.2rem;
+        border-bottom-left-radius: 0.2rem; }
+      .header-login--btn-signup {
+        margin-left: 0.5rem; }
+      .header-login--btn, .header-login--btn-signup {
+        padding: 0.5rem; } }
 
 footer * {
   color: #666; }
@@ -851,12 +895,15 @@ footer * {
   .header .mobile-nav--open a {
     color: #b6191a;
     font-size: 2.2rem; }
+  .header .mobile-nav--open .search-icon {
+    display: none; }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 850px) {
   .nav {
     visibility: visible;
     opacity: 1;
     display: flex;
+    align-items: center;
     position: relative;
     transform: unset; }
     .nav .menu {
@@ -864,7 +911,7 @@ footer * {
       justify-content: center; }
       .nav .menu li {
         margin-left: 1rem;
-        font-size: 1.2rem; } }
+        font-size: 1rem; } }
 
 .hero-slider {
   position: relative; }
@@ -944,6 +991,55 @@ footer * {
     cursor: pointer; }
   .glide__bullets button.glide__bullet--active {
     background-color: #fff; }
+
+.login {
+  background-color: #b6191a; }
+  .login h1 a {
+    background-image: none;
+    display: unset;
+    font-size: 2rem;
+    color: #f1c759;
+    text-decoration: underline; }
+  .login h1 a:hover {
+    color: #d9b75e;
+    text-decoration: none; }
+  .login form {
+    background-color: #f1c759;
+    border-radius: 0.2rem;
+    border: none;
+    box-shadow: none; }
+  .login label {
+    color: #b6191a;
+    font-size: 1.2rem; }
+  .login input {
+    border: none; }
+  .login input:focus {
+    border-color: #b6191a;
+    box-shadow: 0 0 0 1px #b6191a; }
+  .login .button {
+    background-color: #b6191a;
+    border: none; }
+  .login .button:hover {
+    background-color: #8b0000; }
+  .login #nav a,
+  .login #backtoblog a,
+  .login .privacy-policy-link {
+    color: #f1c759; }
+  .login #nav a:hover,
+  .login #backtoblog a:hover,
+  .login .privacy-policy-link {
+    color: #d9b75e;
+    text-decoration: underline; }
+  .login .message {
+    display: none; }
+  .login #reg_passmail {
+    color: #b6191a;
+    font-size: 1rem; }
+  .login .dashicons {
+    color: #b6191a; }
+  .login .wp-hide-pw:focus {
+    border: none;
+    box-shadow: none; }
 
 .error-page p {
   font-size: 1.5rem;

@@ -15,6 +15,22 @@
         "theme_location" => "headerMenuLocation"
       )); ?>
       <div class="mobile-nav--close"><i id="mobile-menu--close" class="fa fa-window-close" aria-hidden="true"></i></div>
+      
+      <div class="header-login">
+        <?php
+          if (is_user_logged_in()) { ?>
+            <div class="header-login--avatar"><?php echo get_avatar(get_current_user_id(), 60); ?></div>
+            <button class="header-login--btn-logout">
+              <a href="<?php echo wp_logout_url(); ?>">
+                <span class="header-login--btn">Log Out</span>
+              </a>
+            </button>
+          <?php } else { ?>
+            <button class="header-login--btn"><a href="<?php echo wp_login_url(); ?>">Login</a></button>
+            <button class="header-login--btn-signup"><a href="<?php echo wp_registration_url() ?>">Sign Up</a></button>
+          <?php }
+        ?>
+      </div>
       <div class="search-icon js-search-trigger site-header__search-trigger"><i class="fas fa-search" aria-hidden="true"></i></div>
     </nav>
     <div class="header--mobile-icons">

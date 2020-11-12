@@ -14,14 +14,19 @@
   </div>
   <div class="comments-section--form">
   <?php
-    if(comments_open()) {
-      if(have_comments()) { ?>
-        <h3>Leave a Comment</h3>
-      <?php }
-      comment_form(array(
-        'title_reply'=>''
-      ));
-    }
+    if (is_user_logged_in()) {
+      if(comments_open()) {
+        if(have_comments()) { ?>
+          <h3>Leave a Comment</h3>
+        <?php }
+        comment_form(array(
+          'title_reply'=>''
+        ));
+      }
+    } else { ?>
+      <h4>Please <a href="<?php echo wp_login_url(); ?>"><u>log in</u></a> if you wish to comment.</h4>
+   <?php }
+    
   ?>
   </div>
 </section>
