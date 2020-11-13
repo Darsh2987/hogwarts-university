@@ -9,9 +9,7 @@
     <?php }
   ?>
   <div class="page-banner--content page-banner--content-template section-width">
-    <h1 class="title"><?php the_title(); ?></h1>
-    <h2 class="headline">Posted By <?php the_author_posts_link(); ?></h2>
-    <h3><?php the_date("d M Y")?></h3>
+  <h1 class="title">All Posts by <?php the_author(); ?></h1>
   </div>
 </section>
 

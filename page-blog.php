@@ -23,7 +23,7 @@
       <div class="post-item">
         <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         <div class="post-item--metabox">
-          <p>Posted by <?php the_author_posts_link(); ?> on <?php the_date("d M Y"); ?></p>
+          <p>Posted by <?php echo get_the_author_posts_link(); ?> on <?php the_date("d M Y"); ?></p>
         </div>
         <div class="post-item--excerpt">
           <p>
