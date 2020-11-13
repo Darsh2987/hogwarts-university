@@ -80,8 +80,11 @@
           </div>
       <?php } wp_reset_postdata();
     ?>
+    <div class="blog-btns">
     <?php $blogPage = get_page_by_title("Blog");?>
     <button><a href="<?php echo get_permalink($blogPage->ID); ?>">View All Blog Posts</a></button>
+    <button><a href="<?php echo site_url("/wp-admin/") ?>"><i class="fas fa-plus"></i> Create a Post</a></button>
+    </div>
   </div>
 </section>
 

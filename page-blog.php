@@ -5,7 +5,8 @@
 
 <div class="metabox section-width">
   <?php $homePage = get_page_by_title("Home Page");?>
-  <a class="metabox-item metabox-link--home metabox-link--home-single" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  <a class="metabox-item metabox-link--home" href="<?php echo get_permalink($homePage->ID); ?>"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  <a class="metabox-item metabox-make-post" href="<?php echo site_url("/wp-admin/") ?>"><i class="fas fa-plus"></i> Create Post</a>
 </div> 
 
 

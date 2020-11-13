@@ -85,6 +85,7 @@
         } else { ?>
         <hr class="section-break">
         <h2>No Upcoming Events</h2>
+        <hr class="section-break">
        <?php }
       ?>
     </section>

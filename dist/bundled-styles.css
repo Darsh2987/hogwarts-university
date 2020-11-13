@@ -57,6 +57,7 @@ button {
   position: absolute;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -64,6 +65,9 @@ button {
   padding: 1rem 2rem; }
   .header h1 {
     font-size: 1.5rem; }
+  .header h1:hover a,
+  .header h1:hover strong {
+    color: #b6191a; }
   .header--mobile-icons {
     display: flex; }
     .header--mobile-icons .hamburger-icon {
@@ -130,7 +134,7 @@ button {
         padding: 0.5rem; } }
 
 footer * {
-  color: #666; }
+  color: #000; }
 
 .footer {
   display: flex;
@@ -141,6 +145,12 @@ footer * {
   .footer h1 {
     font-size: 1.5rem;
     margin-bottom: 2rem; }
+    .footer h1 a,
+    .footer h1 strong {
+      color: #b6191a; }
+  .footer h1:hover a,
+  .footer h1:hover strong {
+    color: #8b0000; }
   .footer--menus {
     display: flex;
     justify-content: space-between; }
@@ -184,7 +194,7 @@ footer * {
   .footer {
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: normal; }
+    align-items: start; }
     .footer h1 {
       font-size: 1.5rem; }
     .footer--menus h3 {
@@ -287,6 +297,12 @@ footer * {
   background-color: #fffcf5; }
   .post-summary-container .post-summary-split--two .post-summary .post-summary--date {
     background-color: #b6191a; }
+  .post-summary-container .post-summary-split--two .blog-btns {
+    display: flex; }
+    .post-summary-container .post-summary-split--two .blog-btns button {
+      font-size: 1rem;
+      padding: 0.7rem 0;
+      width: 125px; }
 
 .post-summary {
   display: flex;
@@ -336,6 +352,12 @@ footer * {
   .post-summary--excerpt {
     font-size: 1.1rem;
     line-height: 1.4rem; } }
+
+@media screen and (min-width: 500px) {
+  .post-summary-container .post-summary-split--two .blog-btns button {
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    width: 200px; } }
 
 @media screen and (min-width: 1000px) {
   .post-summary-container {
@@ -407,13 +429,13 @@ footer * {
       border-radius: 0.2rem; }
   .metabox-link--home:hover {
     background-color: #8b0000; }
-  .metabox-link--parent, .metabox-link--past-events {
+  .metabox-link--parent, .metabox-link--past-events, .metabox-make-post {
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     background-color: #f1c759; }
-    .metabox-link--parent p, .metabox-link--past-events p {
+    .metabox-link--parent p, .metabox-link--past-events p, .metabox-make-post p {
       font-weight: 600; }
-  .metabox-link--parent:hover, .metabox-link--past-events:hover {
+  .metabox-link--parent:hover, .metabox-link--past-events:hover, .metabox-make-post:hover {
     background-color: #d9b75e; }
   .metabox-link--home, .metabox-link--parent {
     cursor: pointer; }

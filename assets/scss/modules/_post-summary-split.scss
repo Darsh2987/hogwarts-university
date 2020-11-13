@@ -46,6 +46,16 @@
     .post-summary .post-summary--date {
       background-color: $red-main;
     }
+
+    .blog-btns {
+      display: flex;
+
+      button {
+        font-size: 1rem;
+        padding: 0.7rem 0;
+        width: 125px;
+      }
+    }
   }
 }
 
@@ -124,6 +134,14 @@
       font-size: 1.1rem;
       line-height: 1.4rem;
     }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .post-summary-container .post-summary-split--two .blog-btns button {
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    width: 200px;
   }
 }
 

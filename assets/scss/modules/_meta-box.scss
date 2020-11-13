@@ -26,7 +26,8 @@
   }
 
   &-link--parent,
-  &-link--past-events {
+  &-link--past-events,
+  &-make-post {
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
     background-color: $yellow-main;
@@ -37,7 +38,8 @@
   }
 
   &-link--parent:hover,
-  &-link--past-events:hover {
+  &-link--past-events:hover,
+  &-make-post:hover {
     background-color: $yellow-hover;
   }
 

@@ -73,7 +73,6 @@
               <h3><a href="<?php echo get_the_permalink($subject); ?>"><?php echo get_the_title($subject); ?></a></h3>
             </div>
             <hr class="section-break">
-            }
           <?php }
         }
       ?>
