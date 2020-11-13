@@ -5,6 +5,8 @@ function hogwarts_post_types() {
 
   // Custom Post Type - Event
   register_post_type("event", array(
+    "capability_type" => "event",
+    "map_meta_cap" => true,
     "show_in_rest" => true,
     "supports" => array("title", "editor", "excerpt", "thumbnail", "comments"),
     "rewrite" => array("slug" => "events"), 
@@ -22,27 +24,31 @@ function hogwarts_post_types() {
   ));
 
   // Custom Post Type - Program
-  register_post_type("subjects", array(
+  register_post_type("program", array(
+    "capability_type" => "program",
+    "map_meta_cap" => true,
     "show_in_rest" => true,
-    "supports" => array("title", "editor", "comments"),
-    "rewrite" => array("slug" => "subjects"), 
+    "supports" => array("title", "editor", "excerpt", "thumbnail", "comments"),
+    "rewrite" => array("slug" => "programs"), 
     "has_archive" => true,
     "public" => true,
     "menu_icon" => "dashicons-awards",
     "labels" => array(
-      "name" => "Subject",
-      "add_new_item" => "Add New Subject",
-      "edit_item" => "Edit Subject",
-      "all_items" => "All Subjects",
-      "singular_name" => "Subject"
+      "name" => "Programs",
+      "add_new_item" => "Add New Program",
+      "edit_item" => "Edit Program",
+      "all_items" => "All Programs",
+      "singular_name" => "Program"
     ),
     "taxonomies" => array("category")
   ));
 
   // Custom Post Type - Professor
   register_post_type("Professor", array(
+    "capability_type" => "professor",
+    "map_meta_cap" => true,
     "show_in_rest" => true,
-    "supports" => array("title", "editor", "thumbnail", "comments"),
+    "supports" => array("title", "editor", "excerpt", "thumbnail", "comments"),
     "public" => true,
     "menu_icon" => "dashicons-welcome-learn-more",
     "labels" => array(
@@ -54,7 +60,6 @@ function hogwarts_post_types() {
     ),
     "taxonomies" => array("category")
   ));
-
 }
 
 add_action("init", "hogwarts_post_types");
