@@ -72,7 +72,7 @@ add_action("pre_get_posts", "hogwarts_adjust_queries");
 
 function custom_comment() { ?>
 <div class="comment-user--block">
-  <div class="comment-user--avatar"><?php echo get_avatar(get_the_author_email(), 80);?> </div>
+  <div class="comment-user--avatar"><?php echo get_avatar(get_current_user_id(), 80);?> </div>
   <div class="comment-user--content">
     <div class="comment-user--date"><p><?php echo get_comment_date(); ?></p></div>
     <div class="comment-user--name"><h4>Comment by <?php echo get_comment_author(); ?><h4></div>
