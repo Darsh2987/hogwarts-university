@@ -35,10 +35,14 @@
         )
       ));
 
-      while($homepageEvents->have_posts()) {
-        $homepageEvents->the_post();
-          get_template_part("template-parts/event", "summary");
-      }
+      if ($homepageEvents->have_posts()) {
+        while($homepageEvents->have_posts()) {
+          $homepageEvents->the_post();
+            get_template_part("template-parts/event", "summary");
+        }
+      } else { ?> 
+        <h2>No Upcoming Events</h2>
+      <?php }
     ?>
     <?php $eventsPage = get_page_by_title("Events");?>
     <button><a href="<?php echo get_permalink($eventsPage->ID); ?>">View All Events</a></button>

@@ -30,13 +30,14 @@
       )
     ));
 
-    while($homepageEvents->have_posts()) {
-      $homepageEvents->the_post();
-         get_template_part("template-parts/event", "summary");
-    }
-    echo paginate_links(array(
-      "total" => $homepageEvents->max_num_pages
-    ));
+    if ($homepageEvents->have_posts()) {
+      while($homepageEvents->have_posts()) {
+        $homepageEvents->the_post();
+          get_template_part("template-parts/event", "summary");
+      }
+    } else { ?> 
+      <h2>No Upcoming Events</h2>
+    <?php }
   ?>
 
 <hr class="section-break">
